@@ -78,4 +78,9 @@ Após a tela da oferta, ao clicar em pagar o site deve redirecionar para a pági
 
 
 ### MOCKUP DAS TELAS
-Veja o mockup e use como base para as telas. Lembre-se: O design precisa ser responsivo. 
+Veja o mockup e use como base para as telas. Lembre-se: O design precisa ser responsivo.
+
+
+|Tela inicial|Tela da oferta|Tela de pagamento
+|-------------|------------------------|----------------------|
+| ![tela home mockup](https://ws2.baratocoletivo.com.br/assets/mockups/Home.png)| ![tela oferta mockup](https://ws2.baratocoletivo.com.br/assets/mockups/Oferta.png)| ![tela pagamento mockup](https://ws2.baratocoletivo.com.br/assets/mockups/Pagamento.png)|
