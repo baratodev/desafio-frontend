@@ -3,9 +3,18 @@
 Oi! Quer fazer parte do nosso time **Barato Coletivo**? Se você deseja participar do nosso processo seletivo, siga as instruções desse desafio e nos mande sua resolução em um *pull request* nesse repositório do Github.
 
 
+# Sobre o Barato
+Somos uma empresa a 10 anos no mercado. O maior e-commerce de serviços e oportunidades do nordeste. Nosso grande desafio é continuar crescendo e acompanhando o mercado cada vez mais competitivo. 
+
+## Nossa stack:
+- App: Ionic1, Ionic 4 / React Native
+- Site: Laravel / Zend Framework / Code Igniter
+- Outras tecnologias utilizadas: Linux / Nodejs / Vuejs / MySQL / Postgresql / Docker / AWS
+
+
 # Vagas disponíveis
  - Desenvolvedor Estágio Frontend (Limite para envio do desafio: 29/07/2019)
- - Desenvolvedor CLT Fronted (Jr/Pleno) (Limite para envio do desafio: 29/07/2019)
+ - Desenvolvedor CLT Frontend (Jr/Pleno) (Limite para envio do desafio: 29/07/2019)
 
 
 # Conhecimentos necessários para Frontend Pleno
