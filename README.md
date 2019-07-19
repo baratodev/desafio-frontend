@@ -3,7 +3,12 @@
 Oi! Quer fazer parte do nosso time **Barato Coletivo**? Se você deseja participar do nosso processo seletivo, siga as instruções desse desafio e nos mande sua resolução em um *pull request* nesse repositório do Github.
 
 
-# Conhecimentos necessários para Frontend
+# Vagas disponíveis
+ - Desenvolvedor Estágio Frontend (Limite para envio do desafio: 29/07/2019)
+ - Desenvolvedor CLT Fronted (Jr/Pleno) (Limite para envio do desafio: 29/07/2019)
+
+
+# Conhecimentos necessários para Frontend Pleno
 
 Nesse desafio você deve ser capaz de consumir uma API REST e criar um design responsivo e usual para exibir as informações. Também será necessário desenvolver algumas lógicas de busca / filtro e listagens. Esses são os conhecimentos básicos que desejamos que você tenha para fazer parte do time Frontend.
 
@@ -31,7 +36,8 @@ Após a tela da oferta, ao clicar em pagar o site deve redirecionar para a pági
 
 ### Requisitos do projeto
 
- - Usar React / Vuejs, Angular ou a lib de Webcomponents de sua preferência para desenvolver o projeto
+ - Para o desenvolvedor Jr/Pleno: Usar React / Vuejs, Angular ou a lib de Webcomponents de sua preferência para desenvolver o projeto
+ - Para o estágio: Fique a vontade para fazer com sua arquitetura preferida (Usar webcomponents é um grande diferencial)
  - Os dados da API devem ser requisitados em tempo real do servidor
  - Design precisa ser responsivo
  - Atentar para criar um design limpo e organizado.
@@ -48,11 +54,12 @@ Após a tela da oferta, ao clicar em pagar o site deve redirecionar para a pági
 # Métodos da API
 
 
-
 |Método                |URL GET                         
 |----------------|------------------------------------------------------------|
 |Listar ofertas|`https://playground.barato.com.b/desafiofront/api/offers` |
 |Listar oferta|`https://playground.barato.com.b/desafiofront/api/offer/{id}`
+
+
 
 ### Parâmetros da API
 |Parâmetro                |Valor                         
