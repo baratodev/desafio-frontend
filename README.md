@@ -68,8 +68,8 @@ Nessa página deve ser mostrado um resumo do pedido (Oferta que ele comprou) e u
 
 |Método                |URL GET                         
 |----------------|------------------------------------------------------------|
-|Listar ofertas|`https://playground.barato.com.b/desafiofront/api/offers` |
-|Listar oferta|`https://playground.barato.com.b/desafiofront/api/offer/{id}`
+|Listar ofertas|`https://playground.barato.com.br/desafio-front/api/offers` |
+|Listar oferta|`https://playground.barato.com.br/desafio-front/api/offer/{id}`
 
 
 
