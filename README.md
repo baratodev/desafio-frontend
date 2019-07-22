@@ -22,32 +22,35 @@ Somos uma empresa a 10 anos no mercado. O maior e-commerce de serviços e oportu
 Nesse desafio você deve ser capaz de consumir uma API REST e criar um design responsivo e usual para exibir as informações. Também será necessário desenvolver algumas lógicas de busca / filtro e listagens. Esses são os conhecimentos básicos que desejamos que você tenha para fazer parte do time Frontend.
 
 ## O desafio
-Você será responsável por criar a nova tela inicial das nossas ofertas. Vai consumir uma API rest que retorna as ofertas e irá desenvolver todo o frontend com a listagem inicial das ofertas, listagem das categorias, exibição de oferta e adicionar ao carrinho.
+Você será responsável por criar a nova tela inicial das nossas ofertas. 
+Para isso, vai consumir uma API rest que retorna uma lista de ofertas e irá desenvolver um frontend legal com a listagem inicial das ofertas, agrupadas por categoria em blocos ou listas.
+Cada oferta na API possui o campo categoria, mas elas não vem organizadas. Você terá de organizar as ofertas por categoria na lista.
+
 
 ### Tela inicial
 
-Você vai implementar a tela inicial, atentar para agrupar as ofertas por categoria.
-Cada oferta no JSON tem descrito Titulo, descrição, Preço De, Preço Por e Categoria.
+Agrupe as ofertas por categoria, você precisa exibir um card com pelo menos a Imagem, Titulo, Preço e um botão de Comprar que deve redirecionar para uma outra URL.
+Faça o possível para agrupar as ofertas por categoria.
+Fique a vontade para implementar melhorias nessa página (Como sliders, passadores, uma busca, filtros, etc).
 
-###### Sugestão de melhorias: Exibir o bloco como slide, busca, Carrinho via ajax, fique a vontade para criar melhorias no layout.
 
 ### Tela de oferta
 
-Ao clicar em comprar em alguma oferta o site deve redirecionar para uma página que exibe a oferta completa.
-A oferta completa exibe uma galeria de imagens, a descrição completa e um botão de pagar.
+Ao clicar numa oferta você deve implementar uma nova tela para exibir as informações da oferta, ou seja a página da oferta.
+Exibir os detalhes e um slide com as imagens.
+Essa tela deve ter um botão Pagar. Esse botão vai para uma nova tela, a de checkout
+
 ###### Sugestão de melhorias: Slide nas imagens.
 
-### Tela de pagamento
+### Tela de Checkout
 
-Após a tela da oferta, ao clicar em pagar o site deve redirecionar para a página de pagamento. Nessa página deve ser mostrado um resumo do pedido (Oferta que ele comprou) e um formulário de cartão de crédito. Esse formulário não precisa ter ação, apenas marcação dos inputs.
+Após a tela da oferta, ao clicar em pagar o site deve redirecionar para a página de pagamento. 
+Nessa página deve ser mostrado um resumo do pedido (Oferta que ele comprou) e um formulário de cartão de crédito. Esse formulário não precisa ter ação, apenas marcação dos inputs.
 
-###### Sugestão de melhorias: Validar formulário, verificar a bandeira do cartão, mascaras, miniatura do cartão.
 
 ### Requisitos do projeto
 
- - Para o desenvolvedor Jr/Pleno: Usar React / Vuejs, Angular ou a lib de Webcomponents de sua preferência para desenvolver o projeto
- - Para o estágio: Fique a vontade para fazer com sua arquitetura preferida (Usar webcomponents é um grande diferencial)
- - Os dados da API devem ser requisitados em tempo real do servidor
+ - Os dados da API devem ser requisitados em tempo real do servidor (Usando axios, fetch ou sua biblioteca de preferëncia)
  - Design precisa ser responsivo
  - Atentar para criar um design limpo e organizado.
  - Você pode usar a Lib de UI que preferir (Bootstrap, Foundation, Material, etc) fique a vontade.
