@@ -87,3 +87,13 @@ Veja o mockup e use como base para as telas. Lembre-se: O design precisa ser res
 |Tela inicial|Tela da oferta|Tela de pagamento
 |-------------|------------------------|----------------------|
 | ![tela home mockup](https://ws2.baratocoletivo.com.br/assets/mockups/Home.png)| ![tela oferta mockup](https://ws2.baratocoletivo.com.br/assets/mockups/Oferta.png)| ![tela pagamento mockup](https://ws2.baratocoletivo.com.br/assets/mockups/Pagamento.png)|
+
+
+### Como nos enviar a resolução
+
+Adicione um Pull request com sua solução para o problema ou compacte um ZIP do seu código e envie para:
+`joaoneto[a]baratocoletivo.com.br`
+Não esqueça de criar um README com instruções de como fazer seu código funcionar.
+
+Você também pode enviar um link público da solução para meu email (Seja Heroku, GCloud, Aws ou o provedor de sua preferência, desde que o código fonte não esteja criptografado)
+(Codepen também vale)
