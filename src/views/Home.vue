@@ -1,11 +1,35 @@
 <template>
-  <div class="home"></div>
+  <div class="home container">
+    <h2 class="home__title">Ofertas</h2>
+    <div class="home__offers">
+      <div class="home__offer" v-for="offer in offers" :key="offer.id">
+        <img class="home__thumbnail" :src="offer.image.url" :alt="offer.title" />
+        <h2 class="home__subtitle">{{ offer.title | excerpt}}</h2>
+        <span class="home__price">{{ offer.price | formatPrice}}</span>
+        <button class="home__payment">comprar</button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import api from "@/service";
+
 export default {
-  name: "home"
+  name: "home",
+  data() {
+    return {
+      offers: []
+    };
+  },
+  async created() {
+    const { data } = await api.get("/offers");
+    this.offers = data;
+  }
 };
 </script>
 
+<style lang="scss" scoped>
+@import "@/assets/home.scss";
+</style>
 
