@@ -1,8 +1,5 @@
 <template>
-  <div class="home">
-    <h1>Vue</h1>
-    <MdBeerIcon class="icon" />
-  </div>
+  <div class="home"></div>
 </template>
 
 <script>

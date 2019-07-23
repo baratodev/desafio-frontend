@@ -1,0 +1,31 @@
+.header {
+  background: #f2f2f2;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  &__cart {
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    font-size: 2rem;
+    color: var(--color-primary);
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

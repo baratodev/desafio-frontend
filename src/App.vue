@@ -1,9 +1,21 @@
 <template>
   <div id="app">
+    <Toolbar />
     <router-view />
-    <MdBeerIcon />
   </div>
 </template>
+
+<script>
+import Toolbar from "@/components/Toolbar";
+
+export default {
+  name: "app",
+  components: {
+    Toolbar
+  }
+};
+</script>
+
 
 <style lang="scss">
 @import "~vue-ionicons/ionicons.scss";
