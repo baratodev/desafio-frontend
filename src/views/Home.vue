@@ -1,6 +1,6 @@
 <template>
   <div class="home container">
-    <h2 class="home__title">Ofertas</h2>
+    <h2 class="title">Ofertas</h2>
     <div class="home__offers">
       <div class="home__offer" v-for="offer in offers" :key="offer.id">
         <router-link

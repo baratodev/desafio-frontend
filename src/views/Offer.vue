@@ -16,6 +16,14 @@
 				<button class="btn">comprar</button>
 			</div>
 		</div>
+		<div class="info">
+			<h2 class="title">Descrição do Produto</h2>
+			<p v-html="offer.description" class="info__text"></p>
+			<p>
+				<span class="info__category">Categoria:</span>
+				{{ offer.category }}
+			</p>
+		</div>
 	</div>
 </template>
 
@@ -37,40 +45,11 @@ export default {
 	},
 	async created() {
 		const { data } = await api.get(`/offer/${this.id}`);
-		let images = data.images.splice(0, data.images.length - 1);
-		this.offer = { ...data, images };
+		this.offer = data;
 	}
 };
 </script>
 
 <style lang="scss" scoped>
-.offer {
-	margin-top: 40px;
-	margin-bottom: 40px;
-	display: grid;
-	grid-template-columns: 60% 40%;
-	grid-gap: 30px;
-
-	@media (max-width: 767px) {
-		grid-template-columns: 1fr;
-	}
-
-	&__image {
-		height: 400px;
-		width: 100%;
-	}
-
-	&__title{
-		font-weight: bold;
-		margin-bottom: 15px;
-	}
-
-	&__price{
-		display: block;
-		font-size: 2rem;
-		font-weight: bold;
-		color: var(--color-btn);
-		margin-bottom: 15px;
-	}
-}
+@import "@/assets/offer.scss"
 </style>
