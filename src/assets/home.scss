@@ -30,28 +30,9 @@
   }
 
   &__price {
-    color: #f0b72a;
+    color: var(--color-btn);
     font-weight: bold;
     display: block;
     margin: 10px 0;
-  }
-
-  &__payment {
-    outline: none;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background: var(--color-btn);
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: background .2s;
-
-    &:hover{
-      background: darken(#f0b72a, 10%);
-    }
   }
 }

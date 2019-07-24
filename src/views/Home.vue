@@ -16,7 +16,7 @@
         </router-link>
         <h2 class="home__subtitle">{{ offer.title | excerpt }}</h2>
         <span class="home__price">{{ offer.price | formatPrice }}</span>
-        <button class="home__payment">comprar</button>
+        <button class="btn">comprar</button>
       </div>
     </div>
   </div>

@@ -56,3 +56,23 @@ body {
 .cursor {
   cursor: pointer;
 }
+
+
+.btn {
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: var(--color-btn);
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background .2s;
+
+  &:hover{
+    background: darken(#f0b72a, 10%);
+  }
+}
