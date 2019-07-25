@@ -40,12 +40,12 @@ img {
   --color-primary: #4e1b5a;
   --color-header: #f2f2f2;
   --color-btn: #f0b72a;
-  --color-search: #d0bfbf;
+  --color-input: #d0bfbf;
   --color-body: #555;
 }
 
 ::placeholder {
-  color: var(--color-search);
+  color: var(--color-input);
 }
 
 body {

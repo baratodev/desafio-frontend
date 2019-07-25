@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header__container">
       <router-link to="/" class="header__title">Barato Coletivo</router-link>
-      <button class="header__cart">
+      <button class="header__cart" @click="$router.push('/cart')">
         <MdCartIcon />
       </button>
     </div>
