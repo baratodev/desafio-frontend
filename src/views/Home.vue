@@ -9,7 +9,11 @@
         </router-link>
         <h2 class="home__subtitle">{{ offer.title | excerpt }}</h2>
         <span class="home__price">{{ offer.price | formatPrice }}</span>
-        <button class="btn">comprar</button>
+        <button
+          class="btn"
+          @click="buy(offer)"
+          :disabled="InCart(offer)"
+        >{{ InCart(offer) ? "item no carrinho" : "comprar" }}</button>
       </div>
     </div>
   </div>
@@ -27,7 +31,8 @@ export default {
   data() {
     return {
       offers: [],
-      search: ""
+      search: "",
+      labelButton: "comprar"
     };
   },
   computed: {
@@ -35,6 +40,14 @@ export default {
       return this.offers.filter(offer =>
         offer.title.toLowerCase().includes(this.search.toLowerCase())
       );
+    }
+  },
+  methods: {
+    buy(product) {
+      this.$store.dispatch("addToCart", product);
+    },
+    InCart(product) {
+      return this.$store.state.cart.find(item => item.id === product.id);
     }
   },
   async created() {

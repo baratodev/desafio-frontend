@@ -9,7 +9,11 @@
       <div>
         <h2 class="offer__title">{{ offer.title }}</h2>
         <span class="offer__price">{{ offer.price | formatPrice }}</span>
-        <button class="btn">comprar</button>
+        <button
+          class="btn"
+          @click="buy()"
+          :disabled="InCart()"
+        >{{ InCart() ? "item no carrinho" : "comprar" }}</button>
       </div>
     </div>
     <div class="info">
@@ -40,6 +44,14 @@ export default {
     return {
       offer: {}
     };
+  },
+  methods: {
+    buy() {
+      this.$store.dispatch("addToCart", this.offer);
+    },
+    InCart() {
+      return this.$store.state.cart.find(item => item.id === this.offer.id);
+    }
   },
   async created() {
     const { data } = await api.get(`/offer/${this.id}`);

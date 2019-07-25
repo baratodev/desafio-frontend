@@ -15,6 +15,7 @@
       </form>
       <div>
         <Heading text="Resumo da Compra" />
+        {{ $store.state.cart }}
       </div>
     </div>
   </div>

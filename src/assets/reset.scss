@@ -80,6 +80,10 @@ body {
   &:hover {
     background: darken(#f0b72a, 10%);
   }
+
+  &:disabled {
+    background: var(--color-input);
+  }
 }
 
 .title {
