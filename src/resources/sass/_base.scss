@@ -1,0 +1,14 @@
+body {
+    color: $font-color;
+}
+
+%button {
+    background-color: $primary-orange;
+    text-transform: uppercase;
+    color: $white;
+    border: none;
+
+    &:hover {
+        background-color: $secondary-orange;
+    }
+}

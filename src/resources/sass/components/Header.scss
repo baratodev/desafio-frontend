@@ -1,0 +1,10 @@
+
+nav.navbar {
+    button.btn-primary {
+        @extend %button;
+
+        span {
+            margin-left: .5em;
+        }
+    }
+}

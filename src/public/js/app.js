@@ -44520,6 +44520,17 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/images/logo.png":
+/*!***********************************!*\
+  !*** ./resources/images/logo.png ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/logo.png?dd6cf1db7b3dd61720716bf5a237167c";
+
+/***/ }),
+
 /***/ "./resources/js/app.jsx":
 /*!******************************!*\
   !*** ./resources/js/app.jsx ***!
@@ -44613,6 +44624,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _helpers_APIManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/APIManager */ "./resources/js/helpers/APIManager.js");
 /* harmony import */ var _OffersList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OffersList */ "./resources/js/components/OffersList.jsx");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44630,6 +44642,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -44650,9 +44663,7 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersList__WEBPACK_IMPORTED_MODULE_2__["default"], {
         provider: manager
       }));
     }
@@ -44662,6 +44673,74 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/Header.jsx":
+/*!********************************************!*\
+  !*** ./resources/js/components/Header.jsx ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../images/logo.png */ "./resources/images/logo.png");
+/* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_images_logo_png__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var Header = function Header(_) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    className: "navbar navbar-expand-lg navbar-dark bg-dark"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    className: "navbar-brand"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "img-responsive",
+    src: _images_logo_png__WEBPACK_IMPORTED_MODULE_1___default.a,
+    alt: "Barato Coletivo"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn btn-primary btn-lg my-2 my-sm-0",
+    type: "submit"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-shopping-cart"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Meu Carrinho"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./resources/js/components/LoadingSpinner.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/components/LoadingSpinner.jsx ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var LoadingSpinner = function LoadingSpinner(_) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spinner-border m-5",
+    role: "status"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "sr-only"
+  }, "Carregando...")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (LoadingSpinner);
 
 /***/ }),
 
@@ -44676,6 +44755,8 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_Formatters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/Formatters */ "./resources/js/helpers/Formatters.js");
+
 
 
 var OfferListItem = function OfferListItem(props) {
@@ -44684,22 +44765,30 @@ var OfferListItem = function OfferListItem(props) {
       marketPrice = props.marketPrice,
       imageURL = props.imageURL;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card col-md-4"
+    className: "card col-md-3 px-0"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: imageURL,
     alt: "",
-    className: "card-img-top img-responsive"
+    className: "card-img-top"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
     className: "card-title"
-  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
-    className: "card-text market-price"
-  }, "R$ ", marketPrice), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
-    className: "card-text current-price"
-  }, "R$ ", price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "list-group list-group-flush"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "list-group-item "
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "market-price"
+  }, "de ", Object(_helpers_Formatters__WEBPACK_IMPORTED_MODULE_1__["formatPrice"])(marketPrice))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "list-group-item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "current-price"
+  }, "por R$ ", Object(_helpers_Formatters__WEBPACK_IMPORTED_MODULE_1__["formatPrice"])(price)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-footer text-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#",
-    className: "btn btn-primary"
+    className: "btn btn-primary btn-lg"
   }, "Comprar")));
 };
 
@@ -44720,6 +44809,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _OfferListItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OfferListItem */ "./resources/js/components/OfferListItem.jsx");
+/* harmony import */ var _LoadingSpinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoadingSpinner */ "./resources/js/components/LoadingSpinner.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44737,6 +44827,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -44790,7 +44881,7 @@ function (_Component) {
           error = _this$state.error;
 
       if (isLoading) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Loading...");
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoadingSpinner__WEBPACK_IMPORTED_MODULE_2__["default"], null);
       }
 
       if (error) {
@@ -44798,7 +44889,9 @@ function (_Component) {
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
+        className: "container px-0"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "offers-list row"
       }, data.map(function (offer) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OfferListItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: offer.id,
@@ -44807,7 +44900,7 @@ function (_Component) {
           marketPrice: offer.market_price,
           imageURL: offer.images[0].url
         });
-      }));
+      })));
     }
   }]);
 
@@ -44932,6 +45025,27 @@ function () {
 }();
 
 
+
+/***/ }),
+
+/***/ "./resources/js/helpers/Formatters.js":
+/*!********************************************!*\
+  !*** ./resources/js/helpers/Formatters.js ***!
+  \********************************************/
+/*! exports provided: formatPrice */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatPrice", function() { return formatPrice; });
+function formatPrice(value) {
+  var formatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2
+  });
+  return formatter.format(value);
+}
 
 /***/ }),
 

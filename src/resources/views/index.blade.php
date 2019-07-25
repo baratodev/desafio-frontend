@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div id="app"></div>
+<div id="app" class="container-fluid px-0"></div>
 
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
