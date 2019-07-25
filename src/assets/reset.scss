@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap');
 
 html {
   box-sizing: border-box;
@@ -40,11 +40,17 @@ img {
   --color-primary: #4e1b5a;
   --color-header: #f2f2f2;
   --color-btn: #f0b72a;
+  --color-search: #d0bfbf;
+  --color-body: #555;
+}
+
+::placeholder {
+  color: var(--color-search);
 }
 
 body {
-  font-family: "Quicksand", sans-serif;
-  color: #555;
+  font-family: 'Quicksand', sans-serif;
+  color: var(--color-body);
 }
 
 .container {
@@ -66,7 +72,7 @@ body {
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: bold;
   font-size: 1rem;
   transition: background 0.2s;

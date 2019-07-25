@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="info">
-      <Title text="Descrição do Produto" />
+      <Heading text="Descrição do Produto" />
       <p v-html="offer.description" class="info__text"></p>
       <p>
         <span class="info__category">Categoria:</span>
@@ -26,7 +26,7 @@
 <script>
 import api from "@/service";
 import { Carousel, Slide } from "vue-carousel";
-import Title from "@/components/Title";
+import Heading from "@/components/Heading";
 
 export default {
   name: "offer",
@@ -34,7 +34,7 @@ export default {
   components: {
     Carousel,
     Slide,
-    Title
+    Heading
   },
   data() {
     return {

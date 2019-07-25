@@ -2,8 +2,20 @@
   margin-top: 40px;
   margin-bottom: 40px;
 
-  .title{
+  .title {
+    margin-bottom: 10px;
+  }
+
+  &__search {
     margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid var(--color-search);
+    outline: none;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    color: var(--color-body);
   }
 
   &__offers {
