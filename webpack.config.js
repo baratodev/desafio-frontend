@@ -21,16 +21,16 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(s?c)ss$/,
+        test: /\.(s?c|sa)ss$/,
         use: [
-          process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+          'vue-style-loader',
           { loader: 'css-loader', options: { importLoaders: 1 } },
           { loader: 'sass-loader' },
           {
             loader: 'image-webpack-loader',
             options: {
-              bypassOnDebug: true, // webpack@1.x
-              disable: true, // webpack@2.x and newer
+              bypassOnDebug: true,
+              disable: true,
             },
           },
         ],
