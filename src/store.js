@@ -7,6 +7,13 @@ export default new Vuex.Store({
   state: {
     cart: []
   },
+
+  getters: {
+    quantityItems(state) {
+      return state.cart.length;
+    }
+  },
+
   mutations: {
     ADD_TO_CART(state, payload) {
       state.cart.push(payload);

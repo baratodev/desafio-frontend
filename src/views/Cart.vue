@@ -13,9 +13,12 @@
           <MdCashIcon />Pagar
         </button>
       </form>
-      <div>
+      <div class="cart__account">
         <Heading text="Resumo da Compra" />
-        {{ $store.state.cart }}
+        <div class="cart__item" v-for="item in cart" :key="item.id">
+          <h3>{{ item.title | excerpt }}</h3>
+          <p>{{ item.price | formatPrice }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -30,6 +33,11 @@ export default {
   components: {
     Heading,
     MdCashIcon
+  },
+  computed: {
+    cart() {
+      return this.$store.state.cart;
+    }
   }
 };
 </script>

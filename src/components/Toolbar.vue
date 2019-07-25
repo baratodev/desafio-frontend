@@ -4,6 +4,7 @@
       <router-link to="/" class="header__title">Barato Coletivo</router-link>
       <button class="header__cart" @click="$router.push('/cart')">
         <MdCartIcon />
+        <span>({{ $store.getters.quantityItems }})</span>
       </button>
     </div>
   </div>

@@ -27,5 +27,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    span {
+      font-size: 1rem;
+      color: var(--color-body);
+      font-weight: bold;
+    }
   }
 }
