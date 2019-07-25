@@ -1,18 +1,10 @@
 <template>
   <div class="home container">
-    <h2 class="title">Ofertas</h2>
+    <Title text="Ofertas" />
     <div class="home__offers">
       <div class="home__offer" v-for="offer in offers" :key="offer.id">
-        <router-link
-          class="cursor"
-          tag="div"
-          :to="{ name: 'offer', params: { id: offer.id } }"
-        >
-          <img
-            class="home__thumbnail"
-            :src="offer.image.url"
-            :alt="offer.title"
-          />
+        <router-link class="cursor" tag="div" :to="{ name: 'offer', params: { id: offer.id } }">
+          <img class="home__thumbnail" :src="offer.image.url" :alt="offer.title" />
         </router-link>
         <h2 class="home__subtitle">{{ offer.title | excerpt }}</h2>
         <span class="home__price">{{ offer.price | formatPrice }}</span>
@@ -24,9 +16,13 @@
 
 <script>
 import api from "@/service";
+import Title from "@/components/Title";
 
 export default {
   name: "home",
+  components: {
+    Title
+  },
   data() {
     return {
       offers: []
