@@ -41,6 +41,7 @@ export default class OffersList extends Component {
                     {data.map(offer =>
                         <OfferListItem
                             key={offer.id}
+                            id={offer.id}
                             title={offer.title}
                             price={offer.price}
                             marketPrice={offer.market_price}

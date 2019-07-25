@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { formatPrice } from '../helpers/Formatters'
 
 const OfferListItem = props => {
-    const { title, price, marketPrice, imageURL } = props
+    const { id, title, price, marketPrice, imageURL } = props
 
     return (
         <div className="card col-md-3 px-0">
@@ -19,7 +20,7 @@ const OfferListItem = props => {
                 </li>
             </ul>
             <div className="card-footer text-center">
-                <a href="#" className="btn btn-primary btn-lg">Comprar</a>
+                <Link to={`/offer/${id}`} className="btn btn-primary btn-lg">Comprar</Link>
             </div>
         </div>
     )

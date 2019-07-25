@@ -1,17 +1,13 @@
-import React, { Component } from 'react'
-import APIManager from '../helpers/APIManager'
-import OffersList from './OffersList'
+import React from 'react'
 import Header from './Header'
 
-const manager = new APIManager()
-
-export default class App extends Component {
-    render() {
-        return (
-            <div>
-                <Header />
-                <OffersList provider={manager} />
-            </div>
-        )
-    }
+const App = props => {
+    return (
+        <React.Fragment>
+            <Header />
+            {props.children}
+        </React.Fragment>
+    )
 }
+
+export default App
