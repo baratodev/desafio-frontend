@@ -15,10 +15,13 @@
       </form>
       <div class="cart__account">
         <Heading text="Resumo da Compra" />
-        <div class="cart__item" v-for="item in cart" :key="item.id">
-          <h3>{{ item.title | excerpt }}</h3>
-          <p>{{ item.price | formatPrice }}</p>
+        <div v-if="cart.length > 0">
+          <div class="cart__item" v-for="item in cart" :key="item.id">
+            <h3>{{ item.title | excerpt }}</h3>
+            <p>{{ item.price | formatPrice }}</p>
+          </div>
         </div>
+        <p v-else>nenhum item no carrinho :(</p>
       </div>
     </div>
   </div>
