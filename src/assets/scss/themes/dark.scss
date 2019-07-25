@@ -1,0 +1,11 @@
+@import "~vue-material/dist/theme/engine";
+
+@include md-register-theme("default", (
+  primary: #4a085a,
+  accent: #efb835,
+  background: #641551,
+  scrollbar: #971b80,
+  scrollbar-background: #581446
+));
+
+@import "~vue-material/dist/theme/all";
