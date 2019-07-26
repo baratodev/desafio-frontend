@@ -12,16 +12,19 @@ import APIManager from './helpers/APIManager'
 import App from './components/App'
 import OffersList from './components/OffersList'
 import OfferDetails from './components/OfferDetails'
+import { OffersProvider } from './OffersContext'
 
 const manager = new APIManager()
 
 ReactDOM.render(
     <App>
         <BrowserRouter>
-            <Switch>
-                <Route exact path="/" render={_ => <OffersList provider={manager} />} />
-                <Route path="/offer/:offerID" component={OfferDetails} />
-            </Switch>
+            <OffersProvider networkManager={manager}>
+                <Switch>
+                    <Route exact path="/" component={OffersList} />
+                    <Route path="/offer/:offerID" component={OfferDetails} />
+                </Switch>
+            </OffersProvider>
         </BrowserRouter>
     </App>,
     document.getElementById('app')

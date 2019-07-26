@@ -48482,6 +48482,94 @@ module.exports = "/images/logo.png?dd6cf1db7b3dd61720716bf5a237167c";
 
 /***/ }),
 
+/***/ "./resources/js/OffersContext.jsx":
+/*!****************************************!*\
+  !*** ./resources/js/OffersContext.jsx ***!
+  \****************************************/
+/*! exports provided: OffersConsumer, OffersProvider */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OffersConsumer", function() { return OffersConsumer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OffersProvider", function() { return OffersProvider; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+var OffersContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext();
+var OffersConsumer = OffersContext.Consumer;
+var OffersProvider =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(OffersProvider, _Component);
+
+  function OffersProvider(props) {
+    var _this;
+
+    _classCallCheck(this, OffersProvider);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(OffersProvider).call(this, props));
+    _this.state = {
+      data: [],
+      isLoading: false,
+      error: null
+    };
+    return _this;
+  }
+
+  _createClass(OffersProvider, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var networkManager = this.props.networkManager;
+      this.setState({
+        isLoading: true
+      });
+      networkManager.getOffers().then(function (data) {
+        return _this2.setState({
+          data: data,
+          isLoading: false
+        });
+      })["catch"](function (error) {
+        return _this2.setState({
+          error: error,
+          isLoading: false
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(OffersContext.Provider, {
+        value: this.state
+      }, this.props.children);
+    }
+  }]);
+
+  return OffersProvider;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/***/ }),
+
 /***/ "./resources/js/app.jsx":
 /*!******************************!*\
   !*** ./resources/js/app.jsx ***!
@@ -48500,6 +48588,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.jsx");
 /* harmony import */ var _components_OffersList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/OffersList */ "./resources/js/components/OffersList.jsx");
 /* harmony import */ var _components_OfferDetails__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/OfferDetails */ "./resources/js/components/OfferDetails.jsx");
+/* harmony import */ var _OffersContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./OffersContext */ "./resources/js/OffersContext.jsx");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
@@ -48514,19 +48603,18 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.jsx");
 
 
 
+
 var manager = new _helpers_APIManager__WEBPACK_IMPORTED_MODULE_3__["default"]();
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_4__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_4__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersContext__WEBPACK_IMPORTED_MODULE_7__["OffersProvider"], {
+  networkManager: manager
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
   exact: true,
   path: "/",
-  render: function render(_) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_OffersList__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      provider: manager
-    });
-  }
+  component: _components_OffersList__WEBPACK_IMPORTED_MODULE_5__["default"]
 }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
   path: "/offer/:offerID",
   component: _components_OfferDetails__WEBPACK_IMPORTED_MODULE_6__["default"]
-})))), document.getElementById('app'));
+}))))), document.getElementById('app'));
 
 /***/ }),
 
@@ -48678,6 +48766,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OfferDetails; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _OffersContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../OffersContext */ "./resources/js/OffersContext.jsx");
+/* harmony import */ var _LoadingSpinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoadingSpinner */ "./resources/js/components/LoadingSpinner.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48698,6 +48788,37 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
+var OfferDetailsContent = function OfferDetailsContent(props) {
+  var title = props.title,
+      description = props.description,
+      price = props.price,
+      marketPrice = props.marketPrice;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container px-0"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "offer-details-header row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-7 col-sm-10"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "img-responsive",
+    src: "",
+    alt: ""
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-5 col-sm-10"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "",
+    className: "btn"
+  }, "Comprar"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "offer-details-description row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Detalhes da oferta:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    dangerouslySetInnerHTML: {
+      __html: description
+    }
+  })));
+};
+
 var OfferDetails =
 /*#__PURE__*/
 function (_Component) {
@@ -48712,24 +48833,23 @@ function (_Component) {
   _createClass(OfferDetails, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container px-0"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-        className: "offer-details-header row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-5 col-sm-10"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "img-responsive",
-        src: "",
-        alt: ""
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-5 col-sm-10"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Nome do produto"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Preco"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "",
-        className: "btn"
-      }, "Comprar"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-        className: "offer-details-description row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Detalhes da oferta:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam vero rem assumenda laudantium expedita aliquid ipsa nisi excepturi dolores deserunt aut magni praesentium illo, ab eligendi totam repudiandae repellendus illum.")));
+      var offerID = this.props.match.params.offerID;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersContext__WEBPACK_IMPORTED_MODULE_1__["OffersConsumer"], null, function (providerState) {
+        var offer = providerState.data.find(function (offer) {
+          return offer.id == offerID;
+        });
+
+        if (offer) {
+          console.log(offer.images);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(OfferDetailsContent, {
+            title: offer.title,
+            description: offer.description,
+            price: offer.price
+          });
+        } else {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoadingSpinner__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+        }
+      });
     }
   }]);
 
@@ -48804,94 +48924,28 @@ var OfferListItem = function OfferListItem(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OffersList; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _OfferListItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OfferListItem */ "./resources/js/components/OfferListItem.jsx");
 /* harmony import */ var _LoadingSpinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoadingSpinner */ "./resources/js/components/LoadingSpinner.jsx");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+/* harmony import */ var _OffersContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../OffersContext */ "./resources/js/OffersContext.jsx");
 
 
 
 
 
-var OffersList =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(OffersList, _Component);
-
-  function OffersList(props) {
-    var _this;
-
-    _classCallCheck(this, OffersList);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(OffersList).call(this, props));
-    _this.state = {
-      data: [],
-      isLoading: false,
-      error: null
-    };
-    return _this;
-  }
-
-  _createClass(OffersList, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var provider = this.props.provider;
-      this.setState({
-        isLoading: true
-      });
-      provider.getOffers().then(function (data) {
-        return _this2.setState({
-          data: data,
-          isLoading: false
-        });
-      })["catch"](function (error) {
-        return _this2.setState({
-          error: error,
-          isLoading: false
-        });
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$state = this.state,
-          data = _this$state.data,
-          isLoading = _this$state.isLoading,
-          error = _this$state.error;
-
-      if (isLoading) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoadingSpinner__WEBPACK_IMPORTED_MODULE_2__["default"], null);
-      }
-
-      if (error) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, error);
-      }
-
+var OffersList = function OffersList(_) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersContext__WEBPACK_IMPORTED_MODULE_3__["OffersConsumer"], null, function (providerState) {
+    if (providerState.isLoading) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoadingSpinner__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+    } else if (providerState.error) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, providerState.error);
+    } else {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container px-0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "offers-list row"
-      }, data.map(function (offer) {
+      }, providerState.data.map(function (offer) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OfferListItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: offer.id,
           id: offer.id,
@@ -48902,12 +48956,10 @@ function (_Component) {
         });
       })));
     }
-  }]);
+  });
+};
 
-  return OffersList;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
+/* harmony default export */ __webpack_exports__["default"] = (OffersList);
 
 /***/ }),
 
