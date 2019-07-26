@@ -1,10 +1,19 @@
 const mutationPorCampo = campo => (state, valor) => state[campo] = valor;
 
+export const types = {
+  CARREGANDO: 'carregando',
+  LISTAR_OFERTAS: 'listarOfertas',
+  LISTAR_OFERTAS_POR_CATEGORIA: 'listarOfertasPorCategoria',
+  PEGAR_OFERTA: 'pegarOferta',
+  ALTERNAR_TEMA: 'alternarTema',
+};
+
 export default {
-  carregando: mutationPorCampo('carregando'),
-  listarOfertas: mutationPorCampo('ofertas'),
-  pegarOferta: mutationPorCampo('oferta'),
-  alternarTema: (state) => {
+  [types.CARREGANDO]: mutationPorCampo('carregando'),
+  [types.LISTAR_OFERTAS]: mutationPorCampo('ofertas'),
+  [types.LISTAR_OFERTAS_POR_CATEGORIA]: mutationPorCampo('ofertasPorCategoria'),
+  [types.PEGAR_OFERTA]: mutationPorCampo('oferta'),
+  [types.ALTERNAR_TEMA]: (state) => {
     state.temaEscuro = !state.temaEscuro;
     localStorage.setItem('tema-escuro', state.temaEscuro);
   }
