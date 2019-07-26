@@ -1,9 +1,7 @@
 <template>
-  <ul>
-    <li v-for="oferta in $props.ofertas">
-      {{ oferta.title }}
-    </li>
-  </ul>
+  <div>
+    <bc-item-oferta v-for="oferta in $props.ofertas" :oferta="oferta" :key="oferta.id"/>
+  </div>
 </template>
 
 <script>
