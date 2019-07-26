@@ -1,5 +1,4 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 
@@ -8,6 +7,14 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'public'),
     filename: '[name].[chunkhash].js?[contenthash]'
+  },
+  stats: {
+    children: false,
+  },
+  resolve: {
+    alias: {
+      'vue-material/src/components': 'vue-material/dist/components'
+    }
   },
   module: {
     rules: [
@@ -24,8 +31,8 @@ module.exports = {
         test: /\.(s?c|sa)ss$/,
         use: [
           'vue-style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          { loader: 'sass-loader' },
+          'css-loader',
+          'sass-loader',
           {
             loader: 'image-webpack-loader',
             options: {
@@ -39,9 +46,10 @@ module.exports = {
         test: /\.(png|jpe?g|ico|gif)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
-              outputPath: '/images/',
+              limit: true,
+              outputPath: '/images/'
             },
           },
           {
@@ -59,10 +67,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html"
     }),
-    new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: '/css/[name].css?[contenthash]',
-      chunkFilename: '/css/bundle.[id].css?[contenthash]',
-    })
+    new VueLoaderPlugin()
   ]
 };
