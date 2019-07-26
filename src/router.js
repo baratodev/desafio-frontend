@@ -1,6 +1,18 @@
 import VueRouter from 'vue-router';
 
-const routes = [];
+import Ofertas from './pages/Ofertas.vue';
+
+const routes = [
+  {
+    name: 'ofertas',
+    component: Ofertas,
+    path: '/'
+  },
+  {
+    path: '*',
+    redirect: '/'
+  }
+];
 
 const router = new VueRouter({
   mode: 'history',
