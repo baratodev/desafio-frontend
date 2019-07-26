@@ -4,6 +4,8 @@ import * as actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
 
+import carrinho from "../helpers/carrinho";
+
 export default new Store({
   state: {
     temaEscuro: !!JSON.parse(localStorage.getItem('tema-escuro')),
@@ -11,6 +13,7 @@ export default new Store({
     ofertas: [],
     ofertasPorCategoria: [],
     oferta: null,
+    carrinho: carrinho.listar()
   },
   actions,
   getters,

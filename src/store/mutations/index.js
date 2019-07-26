@@ -1,3 +1,5 @@
+import carrinho from "../../helpers/carrinho";
+
 const mutationPorCampo = campo => (state, valor) => state[campo] = valor;
 
 export const types = {
@@ -6,6 +8,7 @@ export const types = {
   LISTAR_OFERTAS_POR_CATEGORIA: 'listarOfertasPorCategoria',
   PEGAR_OFERTA: 'pegarOferta',
   ALTERNAR_TEMA: 'alternarTema',
+  ADICIONAR_AO_CARRINHO: 'adicionarAoCarrinho',
 };
 
 export default {
@@ -16,5 +19,8 @@ export default {
   [types.ALTERNAR_TEMA]: (state) => {
     state.temaEscuro = !state.temaEscuro;
     localStorage.setItem('tema-escuro', state.temaEscuro);
+  },
+  [types.ADICIONAR_AO_CARRINHO]: (state, item) => {
+    state.carrinho = carrinho.adicionar(item);
   }
 }

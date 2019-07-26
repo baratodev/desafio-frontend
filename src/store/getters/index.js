@@ -6,4 +6,5 @@ export default {
   ofertas: getterPorCampo('ofertas'),
   ofertasPorCategoria: getterPorCampo('ofertasPorCategoria'),
   oferta: getterPorCampo('oferta'),
+  carrinho: getterPorCampo('carrinho'),
 }
