@@ -18,7 +18,12 @@
         <div v-if="cart.length > 0">
           <div class="cart__item" v-for="item in cart" :key="item.id">
             <h3>{{ item.title | excerpt }}</h3>
-            <p>{{ item.price | formatPrice }}</p>
+            <div class="cart__flex">
+              <p>{{ item.price | formatPrice }}</p>
+              <button class="icon">
+                <MdTrashIcon/>
+              </button>
+            </div>
           </div>
         </div>
         <p v-else>nenhum item no carrinho :(</p>
@@ -31,12 +36,14 @@
 <script>
 import Heading from "@/components/Heading";
 import MdCashIcon from "vue-ionicons/dist/md-cash.vue";
+import MdTrashIcon from 'vue-ionicons/dist/md-trash.vue';
 
 export default {
   name: "cart",
   components: {
     Heading,
-    MdCashIcon
+    MdCashIcon,
+    MdTrashIcon
   },
   computed: {
     cart() {
