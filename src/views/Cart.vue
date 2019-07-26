@@ -22,6 +22,7 @@
           </div>
         </div>
         <p v-else>nenhum item no carrinho :(</p>
+        <div class="cart__total">{{ $store.getters.total | formatPrice }}</div>
       </div>
     </div>
   </div>

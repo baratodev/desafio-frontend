@@ -11,6 +11,11 @@ export default new Vuex.Store({
   getters: {
     quantityItems(state) {
       return state.cart.length;
+    },
+    total(state) {
+      return state.cart.reduce((acc, item) => 
+        acc += Number(item.price)
+      ,0)
     }
   },
 

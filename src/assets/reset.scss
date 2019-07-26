@@ -45,7 +45,7 @@ img {
 }
 
 ::placeholder {
-  color: var(--color-input);
+  color: lighten(#4e1b5a, 20%);
 }
 
 body {
