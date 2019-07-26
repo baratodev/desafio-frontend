@@ -13,8 +13,8 @@ const OffersList = _ => {
                     return <p>{providerState.error}</p>
                 } else {
                     return (
-                        <div className="container px-0">
-                            <div className="offers-list row">
+                        <div className="offers-list container">
+                            <div className="row">
                                 {providerState.data.map(offer =>
                                     <OfferListItem
                                         key={offer.id}

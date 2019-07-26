@@ -8,9 +8,9 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 
-<div id="app" class="container-fluid px-0"></div>
+<div id="app"></div>
 
 <script src="{{ asset('js/app.js') }}"></script>
 </body>

@@ -16491,6 +16491,8 @@ body {
   color: #6a404f;
 }
 
+.offer-details.container .offer-details-header .btn.btn-primary.btn-lg,
+.offer-details.container .offer-details-header .btn-group-lg > .btn.btn-primary,
 .card .card-footer .btn.btn-primary.btn-lg,
 .card .card-footer .btn-group-lg > .btn.btn-primary,
 nav.navbar button.btn-primary {
@@ -16500,6 +16502,8 @@ nav.navbar button.btn-primary {
   border: none;
 }
 
+.offer-details.container .offer-details-header .btn.btn-primary.btn-lg:hover,
+.offer-details.container .offer-details-header .btn-group-lg > .btn.btn-primary:hover,
 .card .card-footer .btn.btn-primary.btn-lg:hover,
 .card .card-footer .btn-group-lg > .btn.btn-primary:hover,
 nav.navbar button.btn-primary:hover {
@@ -16510,11 +16514,24 @@ nav.navbar button.btn-primary span {
   margin-left: 0.5em;
 }
 
-.offers-list.row {
+footer.footer {
+  background-color: #472b35;
+}
+
+footer.footer span {
+  display: block;
+  color: #fff;
+}
+
+.offers-list {
+  padding: 0;
+}
+
+.offers-list .row {
   margin-top: 1rem;
 }
 
-.offers-list.row a.offer-link {
+.offers-list .row a.offer-link {
   height: 100%;
   text-decoration: none;
   color: inherit;
@@ -16555,5 +16572,77 @@ nav.navbar button.btn-primary span {
 .card .card-footer .btn-group-lg > .btn.btn-primary {
   padding-right: 2rem;
   padding-left: 2rem;
+}
+
+.offer-details.container section {
+  margin: 5rem 0;
+}
+
+.offer-details.container .offer-details-title {
+  font-weight: 300;
+}
+
+.offer-details.container .offer-details-header .row {
+  margin-bottom: 1.5rem;
+}
+
+.offer-details.container .offer-details-header .carousel.carousel-thumbnails .carousel-inner {
+  height: 25rem;
+}
+
+.offer-details.container .offer-details-header .carousel.carousel-thumbnails .carousel-inner img.carousel-image {
+  border-radius: 0.25em;
+}
+
+.offer-details.container .offer-details-header .carousel.carousel-thumbnails .carousel-indicators {
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+}
+
+.offer-details.container .offer-details-header .carousel.carousel-thumbnails .carousel-indicators li {
+  width: 100%;
+  height: 3rem;
+}
+
+.offer-details.container .offer-details-header .carousel.carousel-thumbnails .carousel-indicators li.active {
+  border-color: #df9717;
+}
+
+.offer-details.container .offer-details-header .carousel.carousel-thumbnails .carousel-indicators li .img-fluid {
+  height: 100%;
+  border: 0.1em solid rgba(106, 64, 79, 0.3);
+  border-radius: 0.1em;
+}
+
+.offer-details.container .offer-details-header .container-fluid {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.offer-details.container .offer-details-header .container-fluid .offer-details-prices-box .market-price {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.offer-details.container .offer-details-header .container-fluid .offer-details-prices-box .current-price {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.offer-details.container .offer-details-header .btn.btn-primary.btn-lg,
+.offer-details.container .offer-details-header .btn-group-lg > .btn.btn-primary {
+  margin: 5rem auto 0 auto;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+}
+
+.offer-details.container .offer-details-description hr {
+  margin: 0.5rem 0;
+  border-color: rgba(106, 64, 79, 0.3);
 }
 
