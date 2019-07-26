@@ -23,7 +23,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 30px;
 
-    @media (max-width: 767px) {
+    @media (max-width: 1000px) {
       grid-template-columns: 1fr;
     }
   }
@@ -31,6 +31,10 @@
   &__thumbnail {
     height: 200px;
     width: 100%;
+
+    @media (max-width: 1000px) {
+      height: 300px;
+    }
   }
 
   &__subtitle {
