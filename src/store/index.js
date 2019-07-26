@@ -9,6 +9,7 @@ export default new Store({
     temaEscuro: !!JSON.parse(localStorage.getItem('tema-escuro')),
     carregando: true,
     ofertas: [],
+    ofertasPorCategoria: [],
     oferta: null,
   },
   actions,

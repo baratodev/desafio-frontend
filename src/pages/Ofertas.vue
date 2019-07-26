@@ -1,7 +1,7 @@
 <template>
   <bc-layout>
 
-    <section class="md-categoria" v-for="item in ofertasPorCategorias">
+    <section class="md-categoria" v-for="item in ofertasPorCategoria">
 
       <h1>{{ item.categoria }}</h1>
       <bc-lista-ofertas :ofertas="item.ofertas" />
@@ -17,54 +17,24 @@
 
   export default {
     name: "Ofertas",
-    data: () => ({
-      ofertasPorCategorias: [],
-    }),
     created() {
-      this.listarOfertas();
+      this.listarOfertas().then(() => {
+        this.listarOfertasPorCategoria();
+      });
     },
     methods: {
       ...mapActions([
-        'listarOfertas'
+        'listarOfertas',
+        'listarOfertasPorCategoria'
       ]),
-      ...mapMutations([
-        'carregando'
-      ])
     },
     computed: {
       ...mapGetters([
-        'ofertas'
+        'ofertasPorCategoria'
       ]),
-      ...mapGetters({
-        estaCarregando: 'carregando'
-      })
-    },
-    watch: {
-      ofertas() {
-        if (this.ofertas.length > 0) {
-          this.carregando(true);
-
-          const promises = this.ofertas.map(oferta => api.get(`/offer/${oferta.id}`));
-
-          Promise.all(promises)
-            .then(responses => responses.map(res => res.data))
-            .then(ofertas => {
-              let ofertasPorCategorias = ofertas.reduce((obj, oferta) => {
-                if (!Array.isArray(obj[oferta.category])) obj[oferta.category] = [];
-
-                obj[oferta.category].push(oferta);
-
-                return obj;
-              }, {});
-
-              this.ofertasPorCategorias = Object.keys(ofertasPorCategorias).map(categoria => ({
-                categoria,
-                ofertas: ofertasPorCategorias[categoria]
-              }));
-              this.carregando(false);
-            })
-        }
-      }
+      ...mapGetters([
+        'carregando'
+      ])
     }
   }
 </script>
