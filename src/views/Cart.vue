@@ -20,8 +20,8 @@
             <h3>{{ item.title | excerpt }}</h3>
             <div class="cart__flex">
               <p>{{ item.price | formatPrice }}</p>
-              <button class="icon">
-                <MdTrashIcon/>
+              <button class="icon" @click="remove(item.id)">
+                <MdTrashIcon />
               </button>
             </div>
           </div>
@@ -36,7 +36,7 @@
 <script>
 import Heading from "@/components/Heading";
 import MdCashIcon from "vue-ionicons/dist/md-cash.vue";
-import MdTrashIcon from 'vue-ionicons/dist/md-trash.vue';
+import MdTrashIcon from "vue-ionicons/dist/md-trash.vue";
 
 export default {
   name: "cart",
@@ -48,6 +48,11 @@ export default {
   computed: {
     cart() {
       return this.$store.state.cart;
+    }
+  },
+  methods: {
+    remove(id) {
+      this.$store.dispatch("removeToCart", id);
     }
   }
 };

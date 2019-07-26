@@ -13,21 +13,25 @@ export default new Vuex.Store({
       return state.cart.length;
     },
     total(state) {
-      return state.cart.reduce((acc, item) => 
-        acc += Number(item.price)
-      ,0)
+      return state.cart.reduce((acc, item) => (acc += Number(item.price)), 0);
     }
   },
 
   mutations: {
     ADD_TO_CART(state, payload) {
       state.cart.push(payload);
+    },
+    REMOVE_TO_CART(state, payload) {
+      state.cart = state.cart.filter(item => item.id !== payload);
     }
   },
 
   actions: {
     addToCart({ commit }, product) {
       commit('ADD_TO_CART', product);
+    },
+    removeToCart({ commit }, id) {
+      commit('REMOVE_TO_CART', id);
     }
   }
 });
