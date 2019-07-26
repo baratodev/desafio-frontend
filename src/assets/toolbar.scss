@@ -1,5 +1,5 @@
 .header {
-  background: var(--color-header);
+  background: var(--color-primary);
 
   &__container {
     max-width: 1200px;
@@ -12,7 +12,7 @@
 
   &__title {
     text-decoration: none;
-    color: var(--color-primary);
+    color: #fff;
     font-size: 1.5rem;
     font-weight: bold;
   }
@@ -22,7 +22,7 @@
     cursor: pointer;
     background: transparent;
     font-size: 2rem;
-    color: var(--color-primary);
+    color: #fff;
     outline: none;
     display: flex;
     align-items: center;
@@ -30,7 +30,7 @@
 
     span {
       font-size: 1rem;
-      color: var(--color-body);
+      color: #fff;
       font-weight: bold;
     }
   }
