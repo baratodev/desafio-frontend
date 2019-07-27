@@ -16514,6 +16514,17 @@ nav.navbar button.btn-primary span {
   margin-left: 0.5em;
 }
 
+@media (max-width: 575.98px) {
+  nav.navbar .navbar-brand {
+    width: 50%;
+  }
+
+  nav.navbar button.btn.btn-primary.btn-lg span,
+  nav.navbar .btn-group-lg > button.btn.btn-primary span {
+    display: none;
+  }
+}
+
 footer.footer {
   background-color: #472b35;
 }

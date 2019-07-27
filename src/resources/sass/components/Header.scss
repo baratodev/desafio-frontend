@@ -7,4 +7,14 @@ nav.navbar {
             margin-left: .5em;
         }
     }
+
+    @include media-breakpoint-down(xs) {
+        .navbar-brand {
+            width: 50%;
+        }
+
+        button.btn.btn-primary.btn-lg span {
+            display: none;
+        }
+    }
 }
