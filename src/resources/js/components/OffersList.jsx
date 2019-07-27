@@ -1,36 +1,30 @@
-import React, { Component } from 'react'
+import React from 'react'
 import OfferListItem from './OfferListItem'
-import LoadingSpinner from './LoadingSpinner'
-import { OffersConsumer } from '../OffersContext';
 
-const OffersList = _ => {
+function offersFromCategory(category, offers) {
+    return offers.filter(offer => offer.category === category)
+}
+
+const OffersList = ({ category, data }) => {
+    const offers = offersFromCategory(category, data)
+
     return (
-        <OffersConsumer>
-            {providerState => {
-                if (providerState.isLoading) {
-                    return <LoadingSpinner />
-                } else if (providerState.error) {
-                    return <p>{providerState.error}</p>
-                } else {
-                    return (
-                        <div className="offers-list container">
-                            <div className="row">
-                                {providerState.data.map(offer =>
-                                    <OfferListItem
-                                        key={offer.id}
-                                        id={offer.id}
-                                        title={offer.title}
-                                        price={offer.price}
-                                        marketPrice={offer.market_price}
-                                        imageURL={offer.images[0].url}
-                                    />
-                                )}
-                            </div>
-                        </div>
-                    )
-                }
-            }}
-        </OffersConsumer>
+        <div className="offers-list container-fluid">
+            <h2 className="offers-list-title">{category}</h2>
+            <hr/>
+            <div className="row">
+                {offers.map(offer =>
+                    <OfferListItem
+                        key={offer.id}
+                        id={offer.id}
+                        title={offer.title}
+                        price={offer.price}
+                        marketPrice={offer.market_price}
+                        imageURL={offer.images[0].url}
+                    />
+                )}
+            </div>
+        </div>
     )
 }
 

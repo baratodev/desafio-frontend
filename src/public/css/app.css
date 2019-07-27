@@ -16534,25 +16534,21 @@ footer.footer span {
   color: #fff;
 }
 
-.offers-list {
+#offers-page .offers-list {
+  margin: 4rem 0;
   padding: 0;
 }
 
-.offers-list .row {
+#offers-page .offers-list .row {
   margin-top: 1rem;
 }
 
-.offers-list .row a.offer-link {
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
+#offers-page .offers-list .row .col-md-3 {
+  padding: 0.625rem;
 }
 
 .card {
-  max-width: 17.5em;
-  margin-left: 0.3em;
-  margin-right: 0.3em;
-  margin-bottom: 1em;
+  height: 100%;
 }
 
 .card .card-img-top {

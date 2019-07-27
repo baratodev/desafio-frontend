@@ -40,7 +40,7 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
-
+window.Popper = require('popper.js')
 window.$ = window.jQuery = require('jquery')
 
 require('bootstrap')

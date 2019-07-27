@@ -66259,9 +66259,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _helpers_APIManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/APIManager */ "./resources/js/helpers/APIManager.js");
 /* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.jsx");
-/* harmony import */ var _components_OffersList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/OffersList */ "./resources/js/components/OffersList.jsx");
-/* harmony import */ var _components_OfferDetails__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/OfferDetails */ "./resources/js/components/OfferDetails.jsx");
-/* harmony import */ var _OffersContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./OffersContext */ "./resources/js/OffersContext.jsx");
+/* harmony import */ var _components_OfferDetails__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/OfferDetails */ "./resources/js/components/OfferDetails.jsx");
+/* harmony import */ var _OffersContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./OffersContext */ "./resources/js/OffersContext.jsx");
+/* harmony import */ var _components_OffersPage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/OffersPage */ "./resources/js/components/OffersPage.jsx");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
@@ -66278,15 +66278,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.jsx");
 
 
 var manager = new _helpers_APIManager__WEBPACK_IMPORTED_MODULE_3__["default"]();
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_4__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersContext__WEBPACK_IMPORTED_MODULE_7__["OffersProvider"], {
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_4__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersContext__WEBPACK_IMPORTED_MODULE_6__["OffersProvider"], {
   networkManager: manager
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
   exact: true,
   path: "/",
-  component: _components_OffersList__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _components_OffersPage__WEBPACK_IMPORTED_MODULE_7__["default"]
 }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
   path: "/offer/:offerID",
-  component: _components_OfferDetails__WEBPACK_IMPORTED_MODULE_6__["default"]
+  component: _components_OfferDetails__WEBPACK_IMPORTED_MODULE_5__["default"]
 }))))), document.getElementById('app'));
 
 /***/ }),
@@ -66335,6 +66335,7 @@ if (token) {
 // });
 
 
+window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
@@ -66421,7 +66422,7 @@ var Header = function Header(_) {
     href: "#",
     className: "navbar-brand"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "img-responsive",
+    className: "img-fluid",
     src: _images_logo_png__WEBPACK_IMPORTED_MODULE_1___default.a,
     alt: "Barato Coletivo"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -66666,7 +66667,9 @@ var OfferListItem = function OfferListItem(props) {
       marketPrice = props.marketPrice,
       imageURL = props.imageURL;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card col-md-3 px-0"
+    className: "col-md-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: imageURL,
     alt: "",
@@ -66690,7 +66693,7 @@ var OfferListItem = function OfferListItem(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/offer/".concat(id),
     className: "btn btn-primary btn-lg"
-  }, "Comprar")));
+  }, "Comprar"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (OfferListItem);
@@ -66709,39 +66712,89 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _OfferListItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OfferListItem */ "./resources/js/components/OfferListItem.jsx");
-/* harmony import */ var _LoadingSpinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoadingSpinner */ "./resources/js/components/LoadingSpinner.jsx");
-/* harmony import */ var _OffersContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../OffersContext */ "./resources/js/OffersContext.jsx");
+
+
+
+function offersFromCategory(category, offers) {
+  return offers.filter(function (offer) {
+    return offer.category === category;
+  });
+}
+
+var OffersList = function OffersList(_ref) {
+  var category = _ref.category,
+      data = _ref.data;
+  var offers = offersFromCategory(category, data);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "offers-list container-fluid"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "offers-list-title"
+  }, category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, offers.map(function (offer) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OfferListItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      key: offer.id,
+      id: offer.id,
+      title: offer.title,
+      price: offer.price,
+      marketPrice: offer.market_price,
+      imageURL: offer.images[0].url
+    });
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (OffersList);
+
+/***/ }),
+
+/***/ "./resources/js/components/OffersPage.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/OffersPage.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _OffersList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OffersList */ "./resources/js/components/OffersList.jsx");
+/* harmony import */ var _OffersContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../OffersContext */ "./resources/js/OffersContext.jsx");
+/* harmony import */ var _LoadingSpinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LoadingSpinner */ "./resources/js/components/LoadingSpinner.jsx");
 
 
 
 
 
-var OffersList = function OffersList(_) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersContext__WEBPACK_IMPORTED_MODULE_3__["OffersConsumer"], null, function (providerState) {
+function categoriesFrom(offers) {
+  return Array.from(new Set(offers.map(function (offer) {
+    return offer.category;
+  })));
+}
+
+var OffersPage = function OffersPage(_) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersContext__WEBPACK_IMPORTED_MODULE_2__["OffersConsumer"], null, function (providerState) {
     if (providerState.isLoading) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoadingSpinner__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoadingSpinner__WEBPACK_IMPORTED_MODULE_3__["default"], null);
     } else if (providerState.error) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, providerState.error);
     } else {
+      var categories = categoriesFrom(providerState.data);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "offers-list container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, providerState.data.map(function (offer) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OfferListItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          key: offer.id,
-          id: offer.id,
-          title: offer.title,
-          price: offer.price,
-          marketPrice: offer.market_price,
-          imageURL: offer.images[0].url
+        id: "offers-page",
+        className: "container p-0"
+      }, categories.map(function (category, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersList__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: index,
+          category: category,
+          data: providerState.data
         });
-      })));
+      }));
     }
   });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (OffersList);
+/* harmony default export */ __webpack_exports__["default"] = (OffersPage);
 
 /***/ }),
 

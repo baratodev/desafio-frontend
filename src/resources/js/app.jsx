@@ -10,9 +10,9 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import APIManager from './helpers/APIManager'
 import App from './components/App'
-import OffersList from './components/OffersList'
 import OfferDetails from './components/OfferDetails'
 import { OffersProvider } from './OffersContext'
+import OffersPage from './components/OffersPage'
 
 const manager = new APIManager()
 
@@ -21,7 +21,7 @@ ReactDOM.render(
         <BrowserRouter>
             <OffersProvider networkManager={manager}>
                 <Switch>
-                    <Route exact path="/" component={OffersList} />
+                    <Route exact path="/" component={OffersPage} />
                     <Route path="/offer/:offerID" component={OfferDetails} />
                 </Switch>
             </OffersProvider>
