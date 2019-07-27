@@ -1,10 +1,18 @@
 import React from 'react'
-import OfferListItem from './OfferListItem'
+import OfferListItem from './OffersListItem'
 
 function offersFromCategory(category, offers) {
     return offers.filter(offer => offer.category === category)
 }
 
+/**
+ * Componente para uma lista de ofertas
+ *
+ * Recebe uma categoria e um conjunto de dados. Dessa forma, filtra e exibe somente as
+ * ofertas de determinada categoria. Utiliza o componente `OffersListItem` para exibir um item
+ * da listagem.
+ * @param {React.Props} props
+ */
 const OffersList = ({ category, data }) => {
     const offers = offersFromCategory(category, data)
 

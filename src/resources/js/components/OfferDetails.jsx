@@ -3,11 +3,10 @@ import { OffersConsumer } from '../OffersContext'
 import LoadingSpinner from './LoadingSpinner'
 import { formatPrice, percentageDiscount } from '../helpers/Utils'
 
-const ImageCarousel = props => {
-    const { images } = props
-
+const ImageCarousel = ({ images }) => {
     // Para quando alguma imagem não for carregada. O elemento será removido do DOM.
-    const onImageBrokenError = error => error.target.parentNode.style.display = 'none'
+    const onImageBrokenError = error =>
+        error.target.parentNode.style.display = 'none'
 
     return (
         <div id="images-carousel" className="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
@@ -41,8 +40,10 @@ const ImageCarousel = props => {
     )
 }
 
-const OfferDetailsContent = props => {
-    const { title, description, price, marketPrice, images } = props
+const OfferDetailsContent = ({ title, description, price, marketPrice, images }) => {
+    // Isso é preciso pois o texto vem com tags de <b>, mas não de <br>. Então o replace
+    // serve para remover os \r\n e colocar a tag <br>.
+    const descriptionHTML = description.replace(/(?:\r\n|\r|\n)/g, '<br>')
 
     return (
         <div className="offer-details container px-0">
@@ -72,7 +73,7 @@ const OfferDetailsContent = props => {
                 <div className="container-fluid">
                     <h2 className="offer-details-title">Detalhes da oferta</h2>
                     <hr />
-                    <p dangerouslySetInnerHTML={{ __html: description }} />
+                    <p dangerouslySetInnerHTML={{ __html: descriptionHTML }} />
                 </div>
             </section>
         </div>

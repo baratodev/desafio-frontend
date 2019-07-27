@@ -1,5 +1,11 @@
 import React from 'react'
 
+/**
+ * Componente de um spinner de loading
+ *
+ * É utilizado nas páginas que fazem requisições a API para ter uma
+ * resposa visual ao usuário.
+ */
 const LoadingSpinner = _ => {
     return (
         <div className="d-flex justify-content-center">

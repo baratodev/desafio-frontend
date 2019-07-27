@@ -2,9 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { formatPrice } from '../helpers/Utils'
 
-const OfferListItem = props => {
-    const { id, title, price, marketPrice, imageURL } = props
-
+/**
+ * Componente para um item da lista de ofertas
+ *
+ * @param {React.Props} props
+ */
+const OfferListItem = ({ id, title, price, marketPrice, imageURL }) => {
     return (
         <div className="col-md-3">
             <div className="card">

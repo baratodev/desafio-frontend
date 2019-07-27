@@ -1,5 +1,8 @@
 import React from 'react'
 
+/**
+ * Componente para o rodapé
+ */
 const Footer = _ => {
     return (
         <footer className="footer mt-auto py-3">

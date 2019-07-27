@@ -1,6 +1,9 @@
 import React from 'react'
 import logo from '../../images/logo.png'
 
+/**
+ * Componente para o Header
+ */
 const Header = _ => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

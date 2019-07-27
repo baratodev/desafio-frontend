@@ -9,6 +9,12 @@ function categoriesFrom(offers) {
     )
 }
 
+/**
+ * Componente para a página de listagem de ofertas
+ *
+ * As ofertas são exibidas divididas por categorias, para isso, utiliza o
+ * componente `OffersList` para exibir as ofertas de cada categoria.
+ */
 const OffersPage = _ => {
     return (
         <OffersConsumer>

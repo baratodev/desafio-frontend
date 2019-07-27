@@ -2,6 +2,9 @@ import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
 
+/**
+ * Compoenente que estrutura a aplicação no geral
+ */
 const App = props => {
     return (
         <React.Fragment>

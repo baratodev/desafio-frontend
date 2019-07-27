@@ -66358,6 +66358,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/**
+ * Compoenente que estrutura a aplicação no geral
+ */
 
 var App = function App(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
@@ -66384,6 +66387,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
+/**
+ * Componente para o rodapé
+ */
 
 var Footer = function Footer(_) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
@@ -66412,6 +66418,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _images_logo_png__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_images_logo_png__WEBPACK_IMPORTED_MODULE_1__);
 
 
+/**
+ * Componente para o Header
+ */
 
 var Header = function Header(_) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -66449,6 +66458,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
+/**
+ * Componente de um spinner de loading
+ *
+ * É utilizado nas páginas que fazem requisições a API para ter uma
+ * resposa visual ao usuário.
+ */
 
 var LoadingSpinner = function LoadingSpinner(_) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66503,9 +66518,10 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var ImageCarousel = function ImageCarousel(props) {
-  var images = props.images; // Para quando alguma imagem não for carregada. O elemento será removido do DOM.
+var ImageCarousel = function ImageCarousel(_ref) {
+  var images = _ref.images;
 
+  // Para quando alguma imagem não for carregada. O elemento será removido do DOM.
   var onImageBrokenError = function onImageBrokenError(error) {
     return error.target.parentNode.style.display = 'none';
   };
@@ -66544,12 +66560,15 @@ var ImageCarousel = function ImageCarousel(props) {
   })));
 };
 
-var OfferDetailsContent = function OfferDetailsContent(props) {
-  var title = props.title,
-      description = props.description,
-      price = props.price,
-      marketPrice = props.marketPrice,
-      images = props.images;
+var OfferDetailsContent = function OfferDetailsContent(_ref2) {
+  var title = _ref2.title,
+      description = _ref2.description,
+      price = _ref2.price,
+      marketPrice = _ref2.marketPrice,
+      images = _ref2.images;
+  // Isso é preciso pois o texto vem com tags de <b>, mas não de <br>. Então o replace
+  // serve para remover os \r\n e colocar a tag <br>.
+  var descriptionHTML = description.replace(/(?:\r\n|\r|\n)/g, '<br>');
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "offer-details container px-0"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -66587,7 +66606,7 @@ var OfferDetailsContent = function OfferDetailsContent(props) {
     className: "offer-details-title"
   }, "Detalhes da oferta"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     dangerouslySetInnerHTML: {
-      __html: description
+      __html: descriptionHTML
     }
   }))));
 };
@@ -66643,10 +66662,66 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/components/OfferListItem.jsx":
-/*!***************************************************!*\
-  !*** ./resources/js/components/OfferListItem.jsx ***!
-  \***************************************************/
+/***/ "./resources/js/components/OffersList.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/OffersList.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _OffersListItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OffersListItem */ "./resources/js/components/OffersListItem.jsx");
+
+
+
+function offersFromCategory(category, offers) {
+  return offers.filter(function (offer) {
+    return offer.category === category;
+  });
+}
+/**
+ * Componente para uma lista de ofertas
+ *
+ * Recebe uma categoria e um conjunto de dados. Dessa forma, filtra e exibe somente as
+ * ofertas de determinada categoria. Utiliza o componente `OffersListItem` para exibir um item
+ * da listagem.
+ * @param {React.Props} props
+ */
+
+
+var OffersList = function OffersList(_ref) {
+  var category = _ref.category,
+      data = _ref.data;
+  var offers = offersFromCategory(category, data);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "offers-list container-fluid"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "offers-list-title"
+  }, category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, offers.map(function (offer) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersListItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      key: offer.id,
+      id: offer.id,
+      title: offer.title,
+      price: offer.price,
+      marketPrice: offer.market_price,
+      imageURL: offer.images[0].url
+    });
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (OffersList);
+
+/***/ }),
+
+/***/ "./resources/js/components/OffersListItem.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/components/OffersListItem.jsx ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -66659,13 +66734,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/**
+ * Componente para um item da lista de ofertas
+ *
+ * @param {React.Props} props
+ */
 
-var OfferListItem = function OfferListItem(props) {
-  var id = props.id,
-      title = props.title,
-      price = props.price,
-      marketPrice = props.marketPrice,
-      imageURL = props.imageURL;
+var OfferListItem = function OfferListItem(_ref) {
+  var id = _ref.id,
+      title = _ref.title,
+      price = _ref.price,
+      marketPrice = _ref.marketPrice,
+      imageURL = _ref.imageURL;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-md-3"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66700,53 +66780,6 @@ var OfferListItem = function OfferListItem(props) {
 
 /***/ }),
 
-/***/ "./resources/js/components/OffersList.jsx":
-/*!************************************************!*\
-  !*** ./resources/js/components/OffersList.jsx ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _OfferListItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OfferListItem */ "./resources/js/components/OfferListItem.jsx");
-
-
-
-function offersFromCategory(category, offers) {
-  return offers.filter(function (offer) {
-    return offer.category === category;
-  });
-}
-
-var OffersList = function OffersList(_ref) {
-  var category = _ref.category,
-      data = _ref.data;
-  var offers = offersFromCategory(category, data);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "offers-list container-fluid"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-    className: "offers-list-title"
-  }, category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row"
-  }, offers.map(function (offer) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OfferListItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      key: offer.id,
-      id: offer.id,
-      title: offer.title,
-      price: offer.price,
-      marketPrice: offer.market_price,
-      imageURL: offer.images[0].url
-    });
-  })));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (OffersList);
-
-/***/ }),
-
 /***/ "./resources/js/components/OffersPage.jsx":
 /*!************************************************!*\
   !*** ./resources/js/components/OffersPage.jsx ***!
@@ -66771,6 +66804,13 @@ function categoriesFrom(offers) {
     return offer.category;
   })));
 }
+/**
+ * Componente para a página de listagem de ofertas
+ *
+ * As ofertas são exibidas divididas por categorias, para isso, utiliza o
+ * componente `OffersList` para exibir as ofertas de cada categoria.
+ */
+
 
 var OffersPage = function OffersPage(_) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersContext__WEBPACK_IMPORTED_MODULE_2__["OffersConsumer"], null, function (providerState) {
