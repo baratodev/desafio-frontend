@@ -14,6 +14,21 @@
           </div>
 
           <div class="md-toolbar-section-end">
+
+            <md-badge v-show="carrinho.length > 0" :md-content="carrinho.length">
+              <md-button class="md-icon-button">
+                <router-link title="Carrinho de compras" to="/carrinho">
+                  <md-icon>shopping_cart</md-icon>
+                </router-link>
+              </md-button>
+            </md-badge>
+
+            <md-button v-show="carrinho.length === 0" class="md-icon-button">
+              <router-link title="Carrinho de compras" to="/carrinho">
+                <md-icon>shopping_cart</md-icon>
+              </router-link>
+            </md-button>
+
             <md-menu md-size="medium" md-align-trigger>
               <md-button md-menu-trigger class="md-icon-button">
                 <md-icon>more_vert</md-icon>
@@ -61,7 +76,8 @@
     },
     computed: {
       ...mapGetters([
-        'temaEscuro'
+        'temaEscuro',
+        'carrinho'
       ])
     },
     watch: {
