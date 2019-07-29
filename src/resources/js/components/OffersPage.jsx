@@ -27,7 +27,7 @@ const OffersPage = _ => {
                     const categories = categoriesFrom(providerState.data)
 
                     return (
-                        <div id="offers-page" className="container p-0">
+                        <div id="offers-page" className="container">
                             {categories.map((category, index) =>
                                 <OffersList key={index} category={category} data={providerState.data} />
                             )}

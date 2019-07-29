@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { OffersConsumer } from '../OffersContext'
 import LoadingSpinner from './LoadingSpinner'
 import { formatPrice, percentageDiscount } from '../helpers/Utils'
@@ -40,13 +41,13 @@ const ImageCarousel = ({ images }) => {
     )
 }
 
-const OfferDetailsContent = ({ title, description, price, marketPrice, images }) => {
+const OfferDetailsContent = ({ id, title, description, price, marketPrice, images, onAddToCart }) => {
     // Isso é preciso pois o texto vem com tags de <b>, mas não de <br>. Então o replace
     // serve para remover os \r\n e colocar a tag <br>.
     const descriptionHTML = description.replace(/(?:\r\n|\r|\n)/g, '<br>')
 
     return (
-        <div className="offer-details container px-0">
+        <div className="offer-details container">
             <section className="offer-details-header">
                 <div className="row">
                     <h1 className="offer-details-title">{title}</h1>
@@ -64,7 +65,10 @@ const OfferDetailsContent = ({ title, description, price, marketPrice, images })
                                     Desconto de {percentageDiscount(marketPrice, price)}%
                                 </small>
                             </div>
-                            <a href="" className="btn btn-primary btn-lg">Comprar</a>
+                            <button className="btn btn-outline-primary btn-lg" onClick={onAddToCart}>
+                                Adicionar ao carrinho
+                            </button>
+                            <Link to="/payment" className="btn btn-primary btn-lg" onClick={onAddToCart}>Comprar</Link>
                         </div>
                     </div>
                 </div>
@@ -103,11 +107,13 @@ export default class OfferDetails extends Component {
                     if (offer) {
                         return (
                             <OfferDetailsContent
+                                id={offer.id}
                                 title={offer.title}
                                 description={offer.description}
                                 price={offer.price}
                                 marketPrice={offer.market_price}
                                 images={offer.images}
+                                onAddToCart={_ => providerState.addToCart(offer)}
                             />
                         )
                     } else {

@@ -1,11 +1,20 @@
 
 .offer-details.container {
+    @include media-breakpoint-up(lg) {
+        padding: 0;
+    }
+
     section {
         margin: 5rem 0;
     }
 
     .offer-details-title {
         font-weight: 300;
+
+        @include media-breakpoint-down(md) {
+            padding: 0 15px;
+            font-size: 1.7rem;
+        }
     }
 
     .offer-details-header {
@@ -67,10 +76,24 @@
             }
         }
 
+        button.btn.btn-outline-primary.btn-lg {
+            text-transform: uppercase;
+            border-color: $primary-orange;
+            color: $primary-orange;
+            margin: 5rem auto 1rem auto;
+            padding: 1em 3em;
+            font-size: 1rem;
+
+            &:hover {
+                background-color: $primary-orange;
+                color: $white;
+            }
+        }
+
         .btn.btn-primary.btn-lg {
             @extend %button;
-            margin: 5rem auto 0 auto;
-            padding: 1rem 3rem;
+            margin: 0 auto;
+            padding: .5em 2em;
             font-size: 1.7rem;
         }
 

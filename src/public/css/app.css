@@ -16496,7 +16496,7 @@ body {
 .offer-details.container .offer-details-header .btn-group-lg > .btn.btn-primary,
 .card .card-footer .btn.btn-primary.btn-lg,
 .card .card-footer .btn-group-lg > .btn.btn-primary,
-nav.navbar button.btn-primary {
+nav.navbar .btn-primary {
   background-color: #df9717;
   text-transform: uppercase;
   color: #fff;
@@ -16508,7 +16508,7 @@ nav.navbar button.btn-primary {
 .offer-details.container .offer-details-header .btn-group-lg > .btn.btn-primary:hover,
 .card .card-footer .btn.btn-primary.btn-lg:hover,
 .card .card-footer .btn-group-lg > .btn.btn-primary:hover,
-nav.navbar button.btn-primary:hover {
+nav.navbar .btn-primary:hover {
   background-color: #dd8117;
 }
 
@@ -16522,7 +16522,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-nav.navbar button.btn-primary span {
+nav.navbar .btn-primary span {
   margin-left: 0.5em;
 }
 
@@ -16531,8 +16531,8 @@ nav.navbar button.btn-primary span {
     width: 50%;
   }
 
-  nav.navbar button.btn.btn-primary.btn-lg span,
-  nav.navbar .btn-group-lg > button.btn.btn-primary span {
+  nav.navbar .btn.btn-primary.btn-lg span,
+  nav.navbar .btn-group-lg > .btn.btn-primary span {
     display: none;
   }
 }
@@ -16544,6 +16544,17 @@ footer.footer {
 footer.footer span {
   display: block;
   color: #fff;
+}
+
+#offers-page {
+  padding: 0;
+}
+
+@media (max-width: 575.98px) {
+  #offers-page {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 }
 
 #offers-page .offers-list {
@@ -16593,12 +16604,25 @@ footer.footer span {
   padding-left: 2rem;
 }
 
+@media (min-width: 992px) {
+  .offer-details.container {
+    padding: 0;
+  }
+}
+
 .offer-details.container section {
   margin: 5rem 0;
 }
 
 .offer-details.container .offer-details-title {
   font-weight: 300;
+}
+
+@media (max-width: 991.98px) {
+  .offer-details.container .offer-details-title {
+    padding: 0 15px;
+    font-size: 1.7rem;
+  }
 }
 
 .offer-details.container .offer-details-header .row {
@@ -16653,10 +16677,26 @@ footer.footer span {
   margin-bottom: 0;
 }
 
+.offer-details.container .offer-details-header button.btn.btn-outline-primary.btn-lg,
+.offer-details.container .offer-details-header .btn-group-lg > button.btn.btn-outline-primary {
+  text-transform: uppercase;
+  border-color: #df9717;
+  color: #df9717;
+  margin: 5rem auto 1rem auto;
+  padding: 1em 3em;
+  font-size: 1rem;
+}
+
+.offer-details.container .offer-details-header button.btn.btn-outline-primary.btn-lg:hover,
+.offer-details.container .offer-details-header .btn-group-lg > button.btn.btn-outline-primary:hover {
+  background-color: #df9717;
+  color: #fff;
+}
+
 .offer-details.container .offer-details-header .btn.btn-primary.btn-lg,
 .offer-details.container .offer-details-header .btn-group-lg > .btn.btn-primary {
-  margin: 5rem auto 0 auto;
-  padding: 1rem 3rem;
+  margin: 0 auto;
+  padding: 0.5em 2em;
   font-size: 1.7rem;
 }
 

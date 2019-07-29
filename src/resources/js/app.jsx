@@ -18,16 +18,16 @@ import PaymentPage from './components/PaymentPage'
 const manager = new APIManager()
 
 ReactDOM.render(
-    <App>
-        <BrowserRouter>
+    <BrowserRouter>
+        <App>
             <OffersProvider networkManager={manager}>
                 <Switch>
-                    <Route exact path="/" component={PaymentPage} />
+                    <Route exact path="/" component={OffersPage} />
                     <Route path="/offer/:offerID" component={OfferDetails} />
-                    <Route path="/payment/:offerID" component={PaymentPage} />
+                    <Route path="/payment" component={PaymentPage} />
                 </Switch>
             </OffersProvider>
-        </BrowserRouter>
-    </App>,
+        </App>
+    </BrowserRouter>,
     document.getElementById('app')
 )

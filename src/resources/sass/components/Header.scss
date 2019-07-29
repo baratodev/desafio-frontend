@@ -1,6 +1,6 @@
 
 nav.navbar {
-    button.btn-primary {
+    .btn-primary {
         @extend %button;
 
         span {
@@ -13,7 +13,7 @@ nav.navbar {
             width: 50%;
         }
 
-        button.btn.btn-primary.btn-lg span {
+        .btn.btn-primary.btn-lg span {
             display: none;
         }
     }

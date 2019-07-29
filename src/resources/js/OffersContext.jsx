@@ -8,11 +8,19 @@ export class OffersProvider extends Component {
     constructor(props) {
         super(props)
 
+        this.addToCart = this.addToCart.bind(this)
+
         this.state = {
             data: [],
+            shoppingCart: [],
             isLoading: false,
-            error: null
+            error: null,
+            addToCart: this.addToCart
         }
+    }
+
+    addToCart(offer) {
+        this.setState({ shoppingCart: this.state.shoppingCart.concat([offer]) })
     }
 
     componentDidMount() {
@@ -27,8 +35,8 @@ export class OffersProvider extends Component {
 
     render() {
         return (
-            <OffersContext.Provider value={ this.state }>
-                { this.props.children }
+            <OffersContext.Provider value={this.state}>
+                {this.props.children}
             </OffersContext.Provider>
         )
     }
