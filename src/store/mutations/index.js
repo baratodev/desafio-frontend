@@ -10,6 +10,7 @@ export const types = {
   ALTERNAR_TEMA: 'alternarTema',
   ADICIONAR_AO_CARRINHO: 'adicionarAoCarrinho',
   REMOVER_DO_CARRINHO: 'removerDoCarrinho',
+  LIMPAR_CARRINHO: 'limparCarrinho',
 };
 
 export default {
@@ -23,8 +24,14 @@ export default {
   },
   [types.ADICIONAR_AO_CARRINHO]: (state, item) => {
     state.carrinho = carrinho.adicionar(item);
+    state.itensUnicosCarrinho = carrinho.listarUnicos();
   },
   [types.REMOVER_DO_CARRINHO]: (state, indice) => {
     state.carrinho = carrinho.remover(indice);
+    state.itensUnicosCarrinho = carrinho.listarUnicos();
+  },
+  [types.LIMPAR_CARRINHO]: (state, indice) => {
+    state.carrinho = carrinho.limpar();
+    state.itensUnicosCarrinho = state.carrinho;
   }
 }
