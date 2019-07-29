@@ -1,6 +1,7 @@
 import VueRouter from 'vue-router';
 
 import Ofertas from './pages/Ofertas.vue';
+import Carrinho from "./pages/Carrinho.vue";
 
 const routes = [
   {
@@ -9,13 +10,17 @@ const routes = [
     path: '/'
   },
   {
+    name: 'carrinho',
+    component: Carrinho,
+    path: '/carrinho'
+  },
+  {
     path: '*',
     redirect: '/'
   }
 ];
 
 const router = new VueRouter({
-  mode: 'history',
   routes
 });
 
