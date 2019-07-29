@@ -6,8 +6,12 @@
       </md-card-media>
 
       <md-card-header>
-        <div class="md-title">Actions left aligned</div>
-        <div class="md-subhead">Subtitle here</div>
+        <div v-show="$props.oferta.market_price !== $props.oferta.price" class="md-subhead">
+          <del>R$ {{ parseFloat($props.oferta.market_price).toFixed(2) }}</del>
+        </div>
+        <div class="md-title">
+          R$ {{ parseFloat($props.oferta.price).toFixed(2) }}
+        </div>
       </md-card-header>
 
       <md-card-content>
@@ -15,7 +19,7 @@
       </md-card-content>
     </md-card-area>
 
-    <md-card-actions md-alignment="left">
+    <md-card-actions>
       <md-button class="md-accent" v-on:click="adicionarAoCarrinho($props.oferta)">
         Adicionar ao carrinho
         <md-icon>shopping_cart</md-icon>
@@ -45,3 +49,21 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  .md-card {
+    margin-bottom: 20px;
+
+    .md-card-media {
+      display: flex;
+      max-height: 200px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+  }
+
+  .md-card-actions {
+    justify-content: center;
+  }
+</style>
