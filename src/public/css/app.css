@@ -16491,6 +16491,7 @@ body {
   color: #6a404f;
 }
 
+#payment-page form button.btn.btn-primary,
 .offer-details.container .offer-details-header .btn.btn-primary.btn-lg,
 .offer-details.container .offer-details-header .btn-group-lg > .btn.btn-primary,
 .card .card-footer .btn.btn-primary.btn-lg,
@@ -16502,12 +16503,23 @@ nav.navbar button.btn-primary {
   border: none;
 }
 
+#payment-page form button.btn.btn-primary:hover,
 .offer-details.container .offer-details-header .btn.btn-primary.btn-lg:hover,
 .offer-details.container .offer-details-header .btn-group-lg > .btn.btn-primary:hover,
 .card .card-footer .btn.btn-primary.btn-lg:hover,
 .card .card-footer .btn-group-lg > .btn.btn-primary:hover,
 nav.navbar button.btn-primary:hover {
   background-color: #dd8117;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 nav.navbar button.btn-primary span {
@@ -16649,6 +16661,51 @@ footer.footer span {
 }
 
 .offer-details.container .offer-details-description hr {
+  margin: 0.5rem 0;
+  border-color: rgba(106, 64, 79, 0.3);
+}
+
+#payment-page {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+#payment-page .row .col-md-5.col-sm-10 {
+  border-left: 1px solid rgba(106, 64, 79, 0.3);
+}
+
+#payment-page .shopping-cart .container,
+#payment-page .container-fluid form {
+  margin: 2rem 0;
+}
+
+#payment-page form button.btn.btn-primary {
+  width: 50%;
+  font-size: 1.25rem;
+}
+
+#payment-page form .text-center {
+  padding: 2.5rem 0;
+}
+
+#payment-page form .text-center span {
+  margin-left: 0.5rem;
+}
+
+#payment-page .shopping-cart ul.shopping-cart-items {
+  list-style: none;
+  padding-left: 0;
+}
+
+#payment-page .shopping-cart ul.shopping-cart-items li {
+  text-align: center;
+}
+
+#payment-page .shopping-cart ul.shopping-cart-items li.shopping-cart-item-fullprice {
+  font-size: 1.5rem;
+}
+
+#payment-page .shopping-cart ul.shopping-cart-items li.shopping-cart-item-fullprice hr {
   margin: 0.5rem 0;
   border-color: rgba(106, 64, 79, 0.3);
 }

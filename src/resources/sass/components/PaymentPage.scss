@@ -1,0 +1,51 @@
+
+#payment-page {
+    margin: {
+        top: 5rem;
+        bottom: 5rem;
+    }
+
+    .row .col-md-5.col-sm-10 {
+        border-left: 1px solid rgba($font-color, $alpha: 0.3);
+    }
+
+    .shopping-cart .container, .container-fluid form {
+        margin: 2rem 0;
+    }
+
+    form {
+        button.btn.btn-primary {
+            @extend %button;
+            width: 50%;
+            font-size: 1.25rem;
+        }
+
+        .text-center {
+            padding: 2.5rem 0;
+
+            span {
+                margin-left: .5rem;
+            }
+        }
+    }
+
+    .shopping-cart {
+        ul.shopping-cart-items {
+            list-style: none;
+            padding-left: 0;
+
+            li {
+                text-align: center;
+
+                &.shopping-cart-item-fullprice {
+                    font-size: 1.5rem;
+
+                    hr {
+                        margin: .5rem 0;
+                        border-color: rgba($font-color, $alpha: 0.3);
+                    }
+                }
+            }
+        }
+    }
+}

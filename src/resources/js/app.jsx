@@ -13,6 +13,7 @@ import App from './components/App'
 import OfferDetails from './components/OfferDetails'
 import { OffersProvider } from './OffersContext'
 import OffersPage from './components/OffersPage'
+import PaymentPage from './components/PaymentPage'
 
 const manager = new APIManager()
 
@@ -21,8 +22,9 @@ ReactDOM.render(
         <BrowserRouter>
             <OffersProvider networkManager={manager}>
                 <Switch>
-                    <Route exact path="/" component={OffersPage} />
+                    <Route exact path="/" component={PaymentPage} />
                     <Route path="/offer/:offerID" component={OfferDetails} />
+                    <Route path="/payment/:offerID" component={PaymentPage} />
                 </Switch>
             </OffersProvider>
         </BrowserRouter>

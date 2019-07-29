@@ -66262,6 +66262,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_OfferDetails__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/OfferDetails */ "./resources/js/components/OfferDetails.jsx");
 /* harmony import */ var _OffersContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./OffersContext */ "./resources/js/OffersContext.jsx");
 /* harmony import */ var _components_OffersPage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/OffersPage */ "./resources/js/components/OffersPage.jsx");
+/* harmony import */ var _components_PaymentPage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/PaymentPage */ "./resources/js/components/PaymentPage.jsx");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
@@ -66277,16 +66278,20 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.jsx");
 
 
 
+
 var manager = new _helpers_APIManager__WEBPACK_IMPORTED_MODULE_3__["default"]();
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_4__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OffersContext__WEBPACK_IMPORTED_MODULE_6__["OffersProvider"], {
   networkManager: manager
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
   exact: true,
   path: "/",
-  component: _components_OffersPage__WEBPACK_IMPORTED_MODULE_7__["default"]
+  component: _components_PaymentPage__WEBPACK_IMPORTED_MODULE_8__["default"]
 }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
   path: "/offer/:offerID",
   component: _components_OfferDetails__WEBPACK_IMPORTED_MODULE_5__["default"]
+}), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  path: "/payment/:offerID",
+  component: _components_PaymentPage__WEBPACK_IMPORTED_MODULE_8__["default"]
 }))))), document.getElementById('app'));
 
 /***/ }),
@@ -66363,12 +66368,12 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 var App = function App(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
     className: "flex-shrink-0",
     role: "main"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container-fluid px-0"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null), props.children, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], null))));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null), props.children, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -66838,6 +66843,203 @@ var OffersPage = function OffersPage(_) {
 
 /***/ }),
 
+/***/ "./resources/js/components/PaymentForm.jsx":
+/*!*************************************************!*\
+  !*** ./resources/js/components/PaymentForm.jsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PaymentForm; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_Utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/Utils */ "./resources/js/helpers/Utils.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var PaymentForm =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(PaymentForm, _Component);
+
+  function PaymentForm(props) {
+    var _this;
+
+    _classCallCheck(this, PaymentForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PaymentForm).call(this, props));
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(PaymentForm, [{
+    key: "maskValue",
+    value: function maskValue(name, value) {
+      switch (name) {
+        case 'expiration':
+          return _helpers_Utils__WEBPACK_IMPORTED_MODULE_1__["InputMasks"].expirationDate(value);
+
+        default:
+          return value;
+      }
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(event) {
+      var value = event.target.value;
+      var name = event.target.name;
+      console.log(value, name);
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(event) {
+      event.preventDefault();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "payment-form-title"
+      }, "Pagamento"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "cc-number-input"
+      }, "Cart\xE3o de cr\xE9dito"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        name: "number",
+        id: "cc-number-input",
+        className: "form-control",
+        onChange: this.handleChange,
+        required: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "cc-name-input"
+      }, "Nome no Cart\xE3o"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "name",
+        id: "cc-name-input",
+        className: "form-control",
+        onChange: this.handleChange,
+        required: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "cc-expiration-inputt"
+      }, "Validade"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "expiration",
+        id: "cc-expiration-input",
+        className: "form-control",
+        placeholder: "MM/YY",
+        onChange: this.handleChange,
+        required: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "cc-cvc-input"
+      }, "C\xF3digo de seguran\xE7a"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        name: "cvc",
+        id: "cc-cvc-input",
+        className: "form-control",
+        placeholder: "XXX",
+        onChange: this.handleChange,
+        required: true
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "text-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "btn btn-primary"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-money-bill"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Pagar agora")))));
+    }
+  }]);
+
+  return PaymentForm;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/PaymentPage.jsx":
+/*!*************************************************!*\
+  !*** ./resources/js/components/PaymentPage.jsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _PaymentForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PaymentForm */ "./resources/js/components/PaymentForm.jsx");
+
+
+
+var PaymentPage = function PaymentPage(_) {
+  return (// <OffersConsumer>
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "payment-page",
+      className: "container p-0"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "row"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "col-md-7 col-sm-10"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "container-fluid"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PaymentForm__WEBPACK_IMPORTED_MODULE_1__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "col-md-5 col-sm-10"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "shopping-cart container-fluid"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Resumo da Compra"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "container px-0"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      className: "shopping-cart-items"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      className: "shopping-cart-item"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "shopping-cart-item-title"
+    }, "1x Nome do item"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "shopping-cart-item-price"
+    }, "preco do item")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      className: "shopping-cart-item-fullprice"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Total: 123.00")))))))) // </OffersConsumer>
+
+  );
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PaymentPage);
+
+/***/ }),
+
 /***/ "./resources/js/helpers/APIManager.js":
 /*!********************************************!*\
   !*** ./resources/js/helpers/APIManager.js ***!
@@ -66959,13 +67161,18 @@ function () {
 /*!***************************************!*\
   !*** ./resources/js/helpers/Utils.js ***!
   \***************************************/
-/*! exports provided: formatPrice, percentageDiscount */
+/*! exports provided: formatPrice, percentageDiscount, InputMasks */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatPrice", function() { return formatPrice; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "percentageDiscount", function() { return percentageDiscount; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputMasks", function() { return InputMasks; });
+/**
+ * Formata um valor numérico para uma string em formato monetário de reais
+ * @param {String} value Valor a ser formatado
+ */
 function formatPrice(value) {
   var formatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -66974,9 +67181,23 @@ function formatPrice(value) {
   });
   return formatter.format(value);
 }
+/**
+ * Calcula a porcentagem de disconto
+ * @param {Number} totalPrice Preço cheio (valor de mercado)
+ * @param {Number} reducedPrice Preço reduzido (valor do barato coletivo)
+ */
+
 function percentageDiscount(totalPrice, reducedPrice) {
   return Math.abs(Math.ceil(reducedPrice / totalPrice * 100 - 100));
 }
+
+function expirationDate(value) {
+  return value.length > 2 ? value.slice(0, 2) + '/' + value.slice(2) : value;
+}
+
+var InputMasks = {
+  expirationDate: expirationDate
+};
 
 /***/ }),
 
