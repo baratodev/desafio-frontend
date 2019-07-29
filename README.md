@@ -13,3 +13,7 @@ Utilizei o **Docker** para criar o ambiente PHP para executar a aplicação e ta
 1. Primeiro precisa instalar as dependências do Laravel com o `composer install` na pasta `/src`.
 2. Depois as dependências do Node.js por meio do `npm install` também na pasta `/src`.
 3. Praticamente todo o código desenvolvido está na pasta `resources`, divididos nas pastas de acordo com a utilidade: `scss` para os estilos, `js` para os scrips e componentes do React.js. Como todo o layout foi criado usando React, não foi feito muitas coisas na pasta `views`.
+
+- - -
+
+É isto, espero que dê para executar legal.
