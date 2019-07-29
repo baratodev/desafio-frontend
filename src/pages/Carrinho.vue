@@ -1,71 +1,74 @@
 <template>
   <bc-layout>
 
-    <div class="md-layout md-alignment-top-center">
+    <div class="md-layout md-alignment-top-center md-gutter">
 
-      <div class="md-layout-item md-large-size-40 md-size-100">
+      <div class="md-layout-item md-large-size-40 md-small-size-100">
         <h2>Pagamento</h2>
 
-        <div class="md-layout">
+        <div class="md-layout md-gutter">
 
           <div class="md-layout-item md-size-100">
             <md-field>
               <label>Cartão</label>
-              <the-mask mask="#### #### #### ####" class="md-input" />
+              <md-input v-model="cartao" v-mask="'#### #### #### ####'"/>
             </md-field>
           </div>
 
           <div class="md-layout-item md-size-100">
             <md-field>
               <label>Nome impresso</label>
-              <md-input/>
+              <md-input v-model="nome"/>
             </md-field>
           </div>
 
           <div class="md-layout-item md-large-size-50 md-size-100">
             <md-field>
               <label>Validade</label>
-              <the-mask mask="##/##" class="md-input" />
+              <md-input v-model="validade" v-mask="'##/##'"/>
             </md-field>
           </div>
 
           <div class="md-layout-item md-large-size-50 md-size-100">
             <md-field>
               <label>Cod. segurança</label>
-              <the-mask mask="###" class="md-input" />
+              <md-input v-model="codigo" v-mask="'###'"/>
             </md-field>
           </div>
+
+          <div class="md-layout-item md-size-100">
+
+            <div class="md-layout">
+              <md-button class="md-layout-item md-size-100 md-accent md-raised" v-on:click.prevent="pagar()">
+                Pagar agora <md-icon>payment</md-icon>
+              </md-button>
+            </div>
+
+          </div>
+
 
         </div>
 
       </div>
-      <div class="md-layout-item md-large-size-40 md-size-100">
+      <div class="md-layout-item md-large-size-40 md-small-size-100">
         <h2>Resumo da compra</h2>
 
         <md-list>
 
-          <md-list-item v-for="item in listarItems()" :key="item.id">
+          <bc-item-carrinho v-for="item in itensCarrinho" :item="item" :key="item.id" />
 
-            <span class="bc-imagem-item-carrinho">
-              <img :src="item.image.url" :alt="item.title">
-            </span>
+          <md-divider />
 
-            <span class="md-list-item-text">
-              {{ item.title.substring(0, 45) }}...
-            </span>
-
-            X {{ item.quantidade }}
-          </md-list-item>
-
-          <md-divider></md-divider>
-
-          <md-list-item>
-            <strong>Total:</strong> R$ {{ pegarTotal().toFixed(2).replace('.', ',') }}
-          </md-list-item>
+          <bc-total-carrinho />
 
         </md-list>
 
       </div>
+
+      <md-snackbar md-position="center" :md-duration="6000" :md-active.sync="mostrarAlerta" md-persistent>
+        <span>Pagamento realizado com sucesso!</span>
+        <md-button class="md-accent" @click="mostrarAlerta = false">Fechar</md-button>
+      </md-snackbar>
 
     </div>
 
@@ -79,45 +82,38 @@
 
   export default {
     name: "Carrinho",
-
+    data: () => ({
+      cartao: '',
+      nome: '',
+      validade: '',
+      codigo: '',
+      mostrarAlerta: false
+    }),
     methods: {
       ...mapMutations([
-        types.REMOVER_DO_CARRINHO
+        types.LIMPAR_CARRINHO
       ]),
-      pegarTotal() {
-        return this.carrinho.reduce((total, item) => total + parseFloat(item.price), 0);
-      },
-      listarItems() {
-        const itemsUnicos = this.carrinho.reduce((obj, item) => {
-          if (!obj[item.id]) obj[item.id] = { quantidade: 0, ...item };
-
-          obj[item.id].quantidade++;
-
-          return obj;
-        }, {});
-        return Object.values(itemsUnicos);
+      pagar() {
+        this.limparCarrinho();
+        this.cartao = '';
+        this.nome = '';
+        this.validade = '';
+        this.codigo = '';
+        this.mostrarAlerta = true;
       }
     },
     computed: {
-      ...mapGetters([
-        'carrinho'
-      ])
+      ...mapGetters({
+        itensCarrinho: 'itensUnicosCarrinho'
+      })
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  .bc-imagem-item-carrinho {
-    display: flex;
-    width: 50px;
-    height: 50px;
-    justify-content: center;
-    overflow: hidden;
-    margin-right: 15px;
 
-    img {
-      max-height: 100%;
-      width: auto;
-    }
+  .md-layout.md-gutter {
+    max-width: 100%;
   }
+
 </style>
