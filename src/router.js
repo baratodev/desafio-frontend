@@ -6,12 +6,12 @@ import Carrinho from "./pages/Carrinho.vue";
 const routes = [
   {
     name: 'ofertas',
-    component: Ofertas,
+    component: () => import('./pages/Ofertas.vue'),
     path: '/'
   },
   {
     name: 'carrinho',
-    component: Carrinho,
+    component: () => import('./pages/Carrinho.vue'),
     path: '/carrinho'
   },
   {

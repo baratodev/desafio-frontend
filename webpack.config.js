@@ -1,13 +1,32 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+
+const plugins = [
+  new HtmlWebpackPlugin({
+    template: "./src/index.html"
+  }),
+  new VueLoaderPlugin(),
+];
+
+if (process.env.NODE_ENV !== 'production') {
+  plugins.push(new BundleAnalyzerPlugin({
+    analyzerPort: 18000
+  }));
+}
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, 'public'),
-    filename: '[name].[chunkhash].js?[contenthash]'
+    filename: '[name].[chunkhash].js?[contenthash]',
   },
+  optimization: {
+   splitChunks: {
+     chunks: 'all'
+   }
+ },
   stats: {
     children: false,
   },
@@ -63,10 +82,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    }),
-    new VueLoaderPlugin()
-  ]
+  plugins
 };
