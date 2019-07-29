@@ -9,6 +9,7 @@ export const types = {
   PEGAR_OFERTA: 'pegarOferta',
   ALTERNAR_TEMA: 'alternarTema',
   ADICIONAR_AO_CARRINHO: 'adicionarAoCarrinho',
+  REMOVER_DO_CARRINHO: 'removerDoCarrinho',
 };
 
 export default {
@@ -22,5 +23,8 @@ export default {
   },
   [types.ADICIONAR_AO_CARRINHO]: (state, item) => {
     state.carrinho = carrinho.adicionar(item);
+  },
+  [types.REMOVER_DO_CARRINHO]: (state, indice) => {
+    state.carrinho = carrinho.remover(indice);
   }
 }
