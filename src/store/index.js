@@ -13,7 +13,8 @@ export default new Store({
     ofertas: [],
     ofertasPorCategoria: [],
     oferta: null,
-    carrinho: carrinho.listar()
+    carrinho: carrinho.listar(),
+    itensUnicosCarrinho: carrinho.listarUnicos()
   },
   actions,
   getters,

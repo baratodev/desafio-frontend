@@ -7,4 +7,5 @@ export default {
   ofertasPorCategoria: getterPorCampo('ofertasPorCategoria'),
   oferta: getterPorCampo('oferta'),
   carrinho: getterPorCampo('carrinho'),
+  itensUnicosCarrinho: getterPorCampo('itensUnicosCarrinho')
 }
