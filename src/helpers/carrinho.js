@@ -9,7 +9,7 @@ const adicionar = (oferta) => {
   return carrinho;
 };
 
-const remove = (indice) => {
+const remover = (indice) => {
   const carrinho = listar();
   carrinho.splice(indice, 1);
   storage.inserir('carrinho', carrinho);
@@ -19,5 +19,5 @@ const remove = (indice) => {
 export default {
   listar,
   adicionar,
-  remove
+  remover
 };
