@@ -1,0 +1,24 @@
+body {
+    color: $font-color;
+}
+
+%button {
+    background-color: $primary-orange;
+    text-transform: uppercase;
+    color: $white;
+    border: none;
+
+    &:hover {
+        background-color: $secondary-orange;
+    }
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}

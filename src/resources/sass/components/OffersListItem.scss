@@ -1,0 +1,36 @@
+
+.card {
+    height: 100%;
+
+    .card-img-top {
+        height: 11.8em;
+    }
+
+    .list-group-item {
+        padding-top: 0;
+        padding-bottom: 0;
+        border: none;
+
+        .market-price {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .current-price {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+
+    .card-footer {
+        background-color: inherit;
+
+        .btn.btn-primary.btn-lg {
+            @extend %button;
+
+            padding-right: 2rem;
+            padding-left: 2rem;
+        }
+    }
+
+}

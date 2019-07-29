@@ -1,0 +1,108 @@
+
+.offer-details.container {
+    @include media-breakpoint-up(lg) {
+        padding: 0;
+    }
+
+    section {
+        margin: 5rem 0;
+    }
+
+    .offer-details-title {
+        font-weight: 300;
+
+        @include media-breakpoint-down(md) {
+            padding: 0 15px;
+            font-size: 1.7rem;
+        }
+    }
+
+    .offer-details-header {
+        .row {
+            margin-bottom: 1.5rem;
+        }
+
+        .carousel.carousel-thumbnails {
+            .carousel-inner {
+                height: 25rem;
+
+                img.carousel-image {
+                    border-radius: .25em;
+                }
+            }
+
+            .carousel-indicators {
+                position: relative;
+                justify-content: space-between;
+                width: 100%;
+                margin: 0;
+
+                li {
+                    width: 100%;
+                    height: 3rem;
+
+                    &.active {
+                        border-color: $primary-orange;
+                    }
+
+                    .img-fluid {
+                        height: 100%;
+                        border: .1em solid rgba($font-color, $alpha: 0.3);
+                        border-radius: .1em;
+                    }
+                }
+            }
+        }
+
+        .container-fluid {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .offer-details-prices-box {
+                .market-price {
+                    font-size: 1.5rem;
+                    margin-bottom: 0;
+                }
+
+                .current-price {
+                    font: {
+                        size: 2.5rem;
+                        weight: 500;
+                    }
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        button.btn.btn-outline-primary.btn-lg {
+            text-transform: uppercase;
+            border-color: $primary-orange;
+            color: $primary-orange;
+            margin: 5rem auto 1rem auto;
+            padding: 1em 3em;
+            font-size: 1rem;
+
+            &:hover {
+                background-color: $primary-orange;
+                color: $white;
+            }
+        }
+
+        .btn.btn-primary.btn-lg {
+            @extend %button;
+            margin: 0 auto;
+            padding: .5em 2em;
+            font-size: 1.7rem;
+        }
+
+    }
+
+    .offer-details-description {
+        hr {
+            margin: .5rem 0;
+            border-color: rgba($font-color, $alpha: 0.3);
+        }
+    }
+}

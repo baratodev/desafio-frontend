@@ -1,0 +1,24 @@
+
+#offers-page {
+    padding: 0;
+
+    @include media-breakpoint-down(xs) {
+        padding: {
+            right: 15px;
+            left: 15px;
+        }
+    }
+
+    .offers-list {
+        margin: 4rem 0;
+        padding: 0;
+
+        .row {
+            margin-top: 1rem;
+
+            .col-md-3 {
+                padding: .625rem;
+            }
+        }
+    }
+}
