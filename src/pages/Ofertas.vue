@@ -77,4 +77,15 @@
 
   }
 
+  .md-field.md-theme-bc-dark:before {
+    background-color: white;
+  }
+
+  .md-field.md-theme-bc-dark.md-focused {
+    label,
+    .md-input {
+      color: white;
+    }
+  }
+
 </style>
