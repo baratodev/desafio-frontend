@@ -22,11 +22,16 @@
     </md-card-area>
 
     <md-card-actions>
-      <md-button class="md-accent" v-on:click="adicionarAoCarrinho($props.oferta)">
+      <md-button class="md-accent" v-on:click="adicionarAoCarrinho($props.oferta), mostrarMensagem = true">
         Adicionar ao carrinho
         <md-icon>shopping_cart</md-icon>
       </md-button>
     </md-card-actions>
+
+    <md-snackbar md-position="center" :md-duration="6000" :md-active.sync="mostrarMensagem" md-persistent>
+      <span>Item adicionado ao carrinho</span>
+      <md-button class="md-accent" @click="mostrarMensagem = false">Fechar</md-button>
+    </md-snackbar>
   </md-card>
 </template>
 
@@ -44,6 +49,9 @@
         }
       }
     },
+    data: () => ({
+      mostrarMensagem: false,
+    }),
     methods: {
       ...mapMutations([
         types.ADICIONAR_AO_CARRINHO,
