@@ -1,0 +1,10 @@
+@import "~vue-material/dist/theme/engine";
+
+@include md-register-theme("bc", (
+  primary: #641551,
+  accent: #efb835,
+  background: #fafafa,
+  background-variant: #fafafa
+));
+
+@import "~vue-material/dist/theme/all";

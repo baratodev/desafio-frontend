@@ -1,0 +1,11 @@
+@import "~vue-material/dist/theme/engine";
+
+@include md-register-theme("bc-dark", (
+  primary: #4a085a,
+  accent: #efb835,
+  scrollbar-on-background-variant: #971b80,
+  scrollbar-background-on-background-variant: #581446,
+  theme: dark
+));
+
+@import "~vue-material/dist/theme/all";
