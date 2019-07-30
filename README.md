@@ -1,6 +1,5 @@
 # Documentação
-
-Segue abaixo as instruções para a utilização
+Segue abaixo as instruções para a utilização. Para visualizar o exemplo da aplicação [clique aqui](https://d26tk6j3luhumq.cloudfront.net).
 
 ## Servidor de desenvolvimento
 Para executar o servidor da aplicação em modo de desenvolvimento, execute 
