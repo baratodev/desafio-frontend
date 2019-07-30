@@ -10,6 +10,11 @@ const routes = [
     path: '/'
   },
   {
+    name: 'oferta',
+    component: () => import('./pages/Oferta.vue'),
+    path: '/oferta/:id'
+  },
+  {
     name: 'carrinho',
     component: () => import('./pages/Carrinho.vue'),
     path: '/carrinho'

@@ -28,6 +28,7 @@
     "node-serve": "^0.0.3",
     "url-loader": "^2.1.0",
     "vue": "^2.6.10",
+    "vue-carousel": "^0.18.0",
     "vue-material": "^1.0.0-beta-11",
     "vue-router": "^3.0.7",
     "vue-the-mask": "^0.11.1",

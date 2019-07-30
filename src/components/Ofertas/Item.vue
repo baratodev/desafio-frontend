@@ -2,7 +2,9 @@
   <md-card>
     <md-card-area>
       <md-card-media>
-        <img :src="$props.oferta.image.url" :alt="$props.oferta.title" class="md-image">
+        <router-link :to="`/oferta/${$props.oferta.id}`" v-on:click="pegar()">
+          <img :src="$props.oferta.image.url" :alt="$props.oferta.title" class="md-image">
+        </router-link>
       </md-card-media>
 
       <md-card-header>
@@ -44,8 +46,12 @@
     },
     methods: {
       ...mapMutations([
-        types.ADICIONAR_AO_CARRINHO
-      ])
+        types.ADICIONAR_AO_CARRINHO,
+        types.PEGAR_OFERTA,
+      ]),
+      pegar() {
+        this.pegarOferta(this.$props.oferta);
+      }
     }
   }
 </script>
