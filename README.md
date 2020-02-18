@@ -1,16 +1,16 @@
 # Desafio Front-End: Barato Coletivo
 
-## 👨‍💻 Instale todas as dependências
+## :wrench: Instale todas as dependências
 ```
 npm install
 ```
 
-### 👨‍💻 Inicie o servidor localmente
+### :computer: Inicie o servidor localmente
 ```
 npm run serve
 ```
 
-### 👨‍💻 Build do projeto
+### :muscle: Build do projeto
 ```
 npm run build
 ```
