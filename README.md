@@ -1,16 +1,16 @@
 # Desafio Front-End: Barato Coletivo
 
-## 👨🏻‍💻 Instale todas as dependências
+## 👨‍💻 Instale todas as dependências
 ```
 npm install
 ```
 
-### 👨🏻‍💻 Inicie o servidor localmente
+### 👨‍💻 Inicie o servidor localmente
 ```
 npm run serve
 ```
 
-### 👨🏻‍💻 Build do projeto
+### 👨‍💻 Build do projeto
 ```
 npm run build
 ```
