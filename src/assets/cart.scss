@@ -1,0 +1,107 @@
+.cart {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+
+  &__form {
+    border-right: 1px solid var(--color-primary);
+    padding-right: 40px;
+    height: 100%;
+
+    @media (max-width: 767px) {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .title {
+      margin-bottom: 30px;
+    }
+
+    input {
+      font-family: 'Quicksand', sans-serif;
+      color: var(--color-body);
+      font-size: 1rem;
+      padding: 15px;
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--color-input);
+      margin-bottom: 15px;
+      outline: none;
+    }
+
+    .input-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+    }
+
+    .btn {
+      margin-top: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .ion {
+        margin-right: 5px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  &__account {
+    .title {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid var(--color-input);
+
+    &:nth-child(1) {
+      margin-top: 15px;
+    }
+
+    h3 {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-weight: bold;
+      color: var(--color-btn);
+      font-size: 1.2rem;
+    }
+  }
+
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .icon {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--color-delete);
+    }
+  }
+
+  &__total {
+    padding: 15px;
+    text-align: right;
+    font-weight: bold;
+    color: var(--color-primary);
+    font-size: 1.125rem;
+  }
+}

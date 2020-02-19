@@ -1,0 +1,50 @@
+.offer {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	display: grid;
+	grid-template-columns: 60% 40%;
+	grid-gap: 30px;
+
+	@media (max-width: 767px) {
+		grid-template-columns: 1fr;
+	}
+
+	&__image {
+		height: 400px;
+		width: 100%;
+	}
+
+	&__title {
+		font-weight: bold;
+		margin-bottom: 15px;
+	}
+
+	&__price {
+		display: block;
+		font-size: 2rem;
+		font-weight: bold;
+		color: var(--color-btn);
+		margin-bottom: 15px;
+	}
+}
+
+.info {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	font-size: 1.125rem;
+
+	.title {
+		margin-bottom: 15px;
+	}
+
+	&__text {
+		line-height: 1.5;
+		margin-bottom: 15px;
+	}
+
+	&__category{
+		font-weight: bold;
+		color: var(--color-primary);
+		margin-right: 5px;
+	}
+}
